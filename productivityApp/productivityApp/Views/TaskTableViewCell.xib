@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="94" id="6e7-pv-HXI" customClass="TaskTableViewCell" customModule="productivityApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="472" height="94"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6e7-pv-HXI" id="uzh-CG-LPL">
+                <rect key="frame" x="0.0" y="0.0" width="472" height="94"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGW-fx-7KV" userLabel="Task View">
+                        <rect key="frame" x="10" y="10" width="452" height="74"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efy-pV-0iY">
+                                <rect key="frame" x="0.0" y="0.0" width="12" height="74"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="FST-mc-xE0"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBV-kE-2cO">
+                                <rect key="frame" x="30" y="26.5" width="302" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQw-GY-WCp">
+                                <rect key="frame" x="332" y="26.5" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="oWC-S5-8WM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Efy-pV-0iY" secondAttribute="bottom" id="9L3-DG-qk0"/>
+                            <constraint firstItem="KBV-kE-2cO" firstAttribute="leading" secondItem="Efy-pV-0iY" secondAttribute="trailing" constant="18" id="Ar4-dU-BHs"/>
+                            <constraint firstAttribute="trailing" secondItem="XQw-GY-WCp" secondAttribute="trailing" constant="20" id="B1e-lg-SbY"/>
+                            <constraint firstItem="KBV-kE-2cO" firstAttribute="centerY" secondItem="VGW-fx-7KV" secondAttribute="centerY" id="Cip-Gu-vc0"/>
+                            <constraint firstItem="XQw-GY-WCp" firstAttribute="centerY" secondItem="KBV-kE-2cO" secondAttribute="centerY" id="bDh-ct-1tu"/>
+                            <constraint firstItem="Efy-pV-0iY" firstAttribute="leading" secondItem="VGW-fx-7KV" secondAttribute="leading" id="iBt-hf-1GA"/>
+                            <constraint firstItem="XQw-GY-WCp" firstAttribute="leading" secondItem="KBV-kE-2cO" secondAttribute="trailing" id="okD-TD-LP7"/>
+                            <constraint firstItem="Efy-pV-0iY" firstAttribute="top" secondItem="VGW-fx-7KV" secondAttribute="top" id="uPV-J9-dC6"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="VGW-fx-7KV" firstAttribute="width" secondItem="uzh-CG-LPL" secondAttribute="width" constant="-20" id="Ane-ws-ADI"/>
+                    <constraint firstItem="VGW-fx-7KV" firstAttribute="centerY" secondItem="uzh-CG-LPL" secondAttribute="centerY" id="ID4-Hv-3rF"/>
+                    <constraint firstItem="VGW-fx-7KV" firstAttribute="centerX" secondItem="uzh-CG-LPL" secondAttribute="centerX" id="Yv9-jL-sCo"/>
+                    <constraint firstItem="VGW-fx-7KV" firstAttribute="height" secondItem="uzh-CG-LPL" secondAttribute="height" constant="-20" id="tlJ-Sp-LQI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dueTimeLabel" destination="XQw-GY-WCp" id="quS-bT-OqW"/>
+                <outlet property="priorityColorView" destination="Efy-pV-0iY" id="RdX-vy-CQI"/>
+                <outlet property="taskView" destination="VGW-fx-7KV" id="Wku-JZ-r4J"/>
+                <outlet property="titleLabel" destination="KBV-kE-2cO" id="7Hf-Kf-f55"/>
+            </connections>
+            <point key="canvasLocation" x="71.014492753623188" y="90.401785714285708"/>
+        </tableViewCell>
+    </objects>
+</document>

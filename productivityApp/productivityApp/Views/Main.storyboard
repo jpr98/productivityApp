@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nry-DF-Qyk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tasks View Controller-->
+        <scene sceneID="kwL-Sp-w5i">
+            <objects>
+                <viewController id="Nry-DF-Qyk" customClass="TasksViewController" customModule="productivityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CZT-Ds-P0a">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your to-do's" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njs-6u-10v">
+                                <rect key="frame" x="20" y="64" width="374" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-J9-FvA">
+                                <rect key="frame" x="15" y="110" width="384" height="32"/>
+                                <segments>
+                                    <segment title="Time"/>
+                                    <segment title="Priority"/>
+                                    <segment title="Smart"/>
+                                </segments>
+                                <connections>
+                                    <action selector="orderSegmentedControlValueChanged:" destination="Nry-DF-Qyk" eventType="valueChanged" id="AwT-JP-h1D"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D7y-kY-H42">
+                                <rect key="frame" x="0.0" y="155" width="414" height="741"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za9-p6-wfr">
+                                <rect key="frame" x="364" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2t6-ET-gOj"/>
+                                    <constraint firstAttribute="width" constant="30" id="dqL-B4-2PW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="..."/>
+                                <connections>
+                                    <action selector="optionsButtonTapped:" destination="Nry-DF-Qyk" eventType="touchUpInside" id="Jhe-Vr-9L6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Iaw-nu-dhj" firstAttribute="trailing" secondItem="Za9-p6-wfr" secondAttribute="trailing" constant="20" id="00D-9E-nce"/>
+                            <constraint firstItem="Njs-6u-10v" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" constant="20" id="3n3-Wu-kR4"/>
+                            <constraint firstItem="D7y-kY-H42" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" id="87d-05-ufB"/>
+                            <constraint firstItem="D7y-kY-H42" firstAttribute="top" secondItem="TVU-J9-FvA" secondAttribute="bottom" constant="14" id="Ghn-RT-W0T"/>
+                            <constraint firstItem="Iaw-nu-dhj" firstAttribute="trailing" secondItem="TVU-J9-FvA" secondAttribute="trailing" constant="15" id="JYd-i0-Gmt"/>
+                            <constraint firstItem="TVU-J9-FvA" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" constant="15" id="MR0-N7-Nxd"/>
+                            <constraint firstItem="TVU-J9-FvA" firstAttribute="top" secondItem="Njs-6u-10v" secondAttribute="bottom" constant="22" id="SJX-p8-ZpR"/>
+                            <constraint firstItem="D7y-kY-H42" firstAttribute="trailing" secondItem="Iaw-nu-dhj" secondAttribute="trailing" id="Se7-9c-cV0"/>
+                            <constraint firstAttribute="bottom" secondItem="D7y-kY-H42" secondAttribute="bottom" id="Y4p-Dr-kzR"/>
+                            <constraint firstItem="Njs-6u-10v" firstAttribute="top" secondItem="Iaw-nu-dhj" secondAttribute="top" constant="20" id="pco-bt-0Xi"/>
+                            <constraint firstItem="Za9-p6-wfr" firstAttribute="top" secondItem="Iaw-nu-dhj" secondAttribute="top" id="wFR-8K-7ap"/>
+                            <constraint firstItem="Iaw-nu-dhj" firstAttribute="trailing" secondItem="Njs-6u-10v" secondAttribute="trailing" constant="20" id="wyc-I3-pvE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Iaw-nu-dhj"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ohq-sR-lNl"/>
+                    <connections>
+                        <outlet property="optionsButton" destination="Za9-p6-wfr" id="U8T-3H-VVw"/>
+                        <outlet property="orderSegmentedControl" destination="TVU-J9-FvA" id="OhR-4v-ii1"/>
+                        <outlet property="tasksTableView" destination="D7y-kY-H42" id="xlg-wu-CNI"/>
+                        <outlet property="titleLabel" destination="Njs-6u-10v" id="BMC-cA-BDU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHk-w0-OSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="147"/>
+        </scene>
+    </scenes>
+</document>
