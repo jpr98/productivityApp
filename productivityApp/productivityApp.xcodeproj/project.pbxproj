@@ -17,6 +17,9 @@
 		0B1323E82384991500F76E88 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1323E72384991500F76E88 /* TaskTableViewCell.xib */; };
 		0B1323EA2384992500F76E88 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323E92384992500F76E88 /* TaskTableViewCell.swift */; };
 		0B1323ED2384AB5D00F76E88 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323EC2384AB5D00F76E88 /* UIColor+hex.swift */; };
+		0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */; };
+		0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323F02384B22200F76E88 /* SmartTaskTableViewCell.swift */; };
+		0B1323F62384E6FA00F76E88 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323F52384E6FA00F76E88 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		0B1323E72384991500F76E88 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		0B1323E92384992500F76E88 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		0B1323EC2384AB5D00F76E88 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmartTaskTableViewCell.xib; sourceTree = "<group>"; };
+		0B1323F02384B22200F76E88 /* SmartTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTaskTableViewCell.swift; sourceTree = "<group>"; };
+		0B1323F52384E6FA00F76E88 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +70,10 @@
 		0B1323C82384936100F76E88 /* productivityApp */ = {
 			isa = PBXGroup;
 			children = (
-				0B1323EB2384AB5100F76E88 /* Utils */,
-				0B1323E0238493A400F76E88 /* Controllers */,
-				0B1323DF2384939E00F76E88 /* Views */,
 				0B1323DD2384939000F76E88 /* Models */,
+				0B1323DF2384939E00F76E88 /* Views */,
+				0B1323E0238493A400F76E88 /* Controllers */,
+				0B1323EB2384AB5100F76E88 /* Utils */,
 				0B1323C92384936100F76E88 /* AppDelegate.swift */,
 				0B1323CB2384936100F76E88 /* SceneDelegate.swift */,
 				0B1323D22384936500F76E88 /* Assets.xcassets */,
@@ -88,8 +94,8 @@
 		0B1323DF2384939E00F76E88 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B1323F72384E81100F76E88 /* Cells */,
 				0B1323E1238493BF00F76E88 /* Main.storyboard */,
-				0B1323E72384991500F76E88 /* TaskTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				0B1323E32384953D00F76E88 /* TasksViewController.swift */,
-				0B1323E92384992500F76E88 /* TaskTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,8 +112,20 @@
 			isa = PBXGroup;
 			children = (
 				0B1323EC2384AB5D00F76E88 /* UIColor+hex.swift */,
+				0B1323F52384E6FA00F76E88 /* Enums.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		0B1323F72384E81100F76E88 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0B1323E92384992500F76E88 /* TaskTableViewCell.swift */,
+				0B1323E72384991500F76E88 /* TaskTableViewCell.xib */,
+				0B1323F02384B22200F76E88 /* SmartTaskTableViewCell.swift */,
+				0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +189,7 @@
 				0B1323E82384991500F76E88 /* TaskTableViewCell.xib in Resources */,
 				0B1323E2238493BF00F76E88 /* Main.storyboard in Resources */,
 				0B1323D62384936500F76E88 /* LaunchScreen.storyboard in Resources */,
+				0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */,
 				0B1323D32384936500F76E88 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,7 +205,9 @@
 				0B1323E42384953D00F76E88 /* TasksViewController.swift in Sources */,
 				0B1323EA2384992500F76E88 /* TaskTableViewCell.swift in Sources */,
 				0B1323ED2384AB5D00F76E88 /* UIColor+hex.swift in Sources */,
+				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
 				0B1323CA2384936100F76E88 /* AppDelegate.swift in Sources */,
+				0B1323F62384E6FA00F76E88 /* Enums.swift in Sources */,
 				0B1323CC2384936100F76E88 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

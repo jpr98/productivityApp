@@ -8,18 +8,6 @@
 
 import Foundation
 
-enum Priority {
-	case low
-	case medium
-	case high
-}
-
-enum Order {
-	case time
-	case priority
-	case smart
-}
-
 class Task {
 	
 	var title: String

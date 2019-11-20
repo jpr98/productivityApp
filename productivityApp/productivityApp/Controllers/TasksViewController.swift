@@ -8,17 +8,6 @@
 
 import UIKit
 
-enum Identifiers: String {
-	case taskCell = "taskCell"
-	
-	func getNib() -> UINib {
-		switch self {
-		case .taskCell:
-			return UINib(nibName: "TaskTableViewCell", bundle: nil)
-		}
-	}
-}
-
 class TasksViewController: UIViewController {
 	
 	@IBOutlet weak var titleLabel: UILabel!
@@ -27,7 +16,12 @@ class TasksViewController: UIViewController {
 	@IBOutlet weak var optionsButton: UIButton!
 	
 	private var tasks = [Task]()
-	private var order = Order.time
+	private var order = Order.smart
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		// TODO: Set background color to view and tableView
+	}
 	
 	override func viewDidLoad() {
 		
@@ -40,6 +34,7 @@ class TasksViewController: UIViewController {
 		tasksTableView.separatorStyle = .none
 		
 		tasksTableView.register(Identifiers.taskCell.getNib(), forCellReuseIdentifier: Identifiers.taskCell.rawValue)
+		tasksTableView.register(Identifiers.smartTaskCell.getNib(), forCellReuseIdentifier: Identifiers.smartTaskCell.rawValue)
 		
 	}
 	
@@ -75,9 +70,18 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			return cell
 			
-		} else {
+		} else if order == .smart {
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.smartTaskCell.rawValue, for: indexPath) as? SmartTaskTableViewCell else {
+				return UITableViewCell()
+			}
+			
+			cell.task = tasks[indexPath.row]
+			cell.setup()
+			
+			return cell
 			
 		}
+		
 		return UITableViewCell()
 	}
 	

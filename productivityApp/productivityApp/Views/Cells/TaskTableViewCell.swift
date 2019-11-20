@@ -18,17 +18,31 @@ class TaskTableViewCell: UITableViewCell {
 	var task: Task!
 	
 	override func awakeFromNib() {
+		
 		super.awakeFromNib()
+		
+		taskView.layer.cornerRadius = 9
+		taskView.layer.masksToBounds = true
+		taskView.layer.borderColor = UIColor.gray.cgColor
+		taskView.layer.borderWidth = 0.5
+		
 	}
 	
 	func setup() {
 		titleLabel.text = task.title
-		dueTimeLabel.text = "" // task.dueDate
-		taskView.layer.cornerRadius = 9
-		taskView.layer.masksToBounds = true
-		taskView.layer.borderColor = UIColor.gray.cgColor
-		taskView.layer.borderWidth = 1
-		setPriorityColor()
+		dueTimeLabel.text = formatDate()
+		setPriorityColor() // TODO: fix this
+	}
+	
+	private func formatDate() -> String{
+		
+		let formatter = DateFormatter()
+		formatter.dateFormat = "hh:mm a"
+		formatter.amSymbol = "am"
+		formatter.pmSymbol = "pm"
+		
+		return formatter.string(from: task.dueDate)
+		
 	}
 	
 	private func setPriorityColor() {
@@ -43,4 +57,5 @@ class TaskTableViewCell: UITableViewCell {
 		}
 		
 	}
+	
 }
