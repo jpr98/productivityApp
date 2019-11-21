@@ -16,7 +16,7 @@ class TasksViewController: UIViewController {
 	@IBOutlet weak var optionsButton: UIButton!
 	
 	// Add Button View
-	@IBOutlet weak var addButtonView: AddButton!
+	@IBOutlet weak var addButtonView: UIView!
 	@IBOutlet weak var addButton: UIButton!
 	@IBOutlet weak var addButtonImage: UIImageView!
 	@IBOutlet weak var addButtonText: UILabel!
