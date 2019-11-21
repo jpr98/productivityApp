@@ -26,14 +26,20 @@ enum Identifiers: String {
 	
 }
 
-enum Priority {
-	case low
-	case medium
-	case high
-}
-
 enum Order {
 	case time
 	case priority
 	case smart
+}
+
+enum Priority: Int {
+	case low = 0
+	case medium = 1
+	case high = 2
+}
+
+enum ViewType {
+	case background
+	case cell
+	case priority(Priority)
 }

@@ -21,9 +21,11 @@ class TaskTableViewCell: UITableViewCell {
 		
 		super.awakeFromNib()
 		
+		self.contentView.backgroundColor = UIColor.color(for: .cell)
+		
 		taskView.layer.cornerRadius = 9
 		taskView.layer.masksToBounds = true
-		taskView.layer.borderColor = UIColor.gray.cgColor
+		taskView.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
 		taskView.layer.borderWidth = 0.5
 		
 	}
@@ -31,10 +33,10 @@ class TaskTableViewCell: UITableViewCell {
 	func setup() {
 		titleLabel.text = task.title
 		dueTimeLabel.text = formatDate()
-		setPriorityColor() // TODO: fix this
+		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
 	}
 	
-	private func formatDate() -> String{
+	private func formatDate() -> String {
 		
 		let formatter = DateFormatter()
 		formatter.dateFormat = "hh:mm a"
@@ -42,19 +44,6 @@ class TaskTableViewCell: UITableViewCell {
 		formatter.pmSymbol = "pm"
 		
 		return formatter.string(from: task.dueDate)
-		
-	}
-	
-	private func setPriorityColor() {
-		
-		switch task.priority {
-		case .low:
-			priorityColorView.backgroundColor = UIColor(hex: "6BB218")
-		case .medium:
-			priorityColorView.backgroundColor = UIColor(hex: "E8D811")
-		case .high:
-			priorityColorView.backgroundColor = UIColor(hex: "B1061B")
-		}
 		
 	}
 	

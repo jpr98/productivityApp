@@ -80,7 +80,100 @@ class Task {
 		return mockData
 	}
 	
-	func order(by order: Order) {
+	func calculateRemainingTime() -> TimeInterval {
+		return 0
+	}
+	
+	// MARK: - Ordering methods
+	static func order(_ tasks: [Task], by order: Order, completion: ([Task]) -> Void) {
+		
+		var orderedTasks = [Task]()
+		
+		switch order {
+		case .priority:
+			orderedTasks = orderByPriority(tasks)
+		case .time:
+			orderedTasks = orderByTime(tasks)
+		case .smart:
+			orderedTasks = orderBySmart(tasks)
+		}
+		
+		// Maybe I can change this...
+		orderedTasks = orderedTasks.filter { (task) -> Bool in
+			return !task.completed
+		}
+		
+		completion(orderedTasks)
 		
 	}
+	
+	private static func orderByTime(_ tasks: [Task]) -> [Task] {
+		
+		var orderedTasks = tasks
+		
+		orderedTasks.sort { (first, second) -> Bool in
+			return first.dueDate > second.dueDate
+		}
+		
+		return orderedTasks
+		
+	}
+	
+	private static func orderByPriority(_ tasks: [Task]) -> [Task] {
+		
+		var orderedTasks = tasks
+		
+		orderedTasks.sort { (first, second) -> Bool in
+			return first.priority.rawValue > second.priority.rawValue
+		}
+		
+		return orderedTasks
+		
+	}
+	
+	private static func orderBySmart(_ tasks: [Task]) -> [Task] {
+		
+		var orderedTasks = tasks
+		
+		orderedTasks.sort { (first, second) -> Bool in
+			return first.calculateRemainingTime() > second.calculateRemainingTime()
+		}
+		
+		return orderedTasks
+		
+	}
+	
+	// MARK: - Sections
+	static func getSections(for tasks: [Task]) -> [DaySection] {
+		
+		var daySections: [String:Int] = [:]
+		
+		let days = tasks.compactMap{ task -> String in
+			let formatter = DateFormatter()
+			formatter.dateFormat = "EEEE"
+			return formatter.string(from: task.dueDate)
+		}
+		
+		for day in days {
+			if let d = daySections[day] {
+				daySections[day] = d + 1
+			} else {
+				daySections[day] = 1
+			}
+		}
+		
+		var result = [DaySection]()
+		
+		for (k, v) in daySections {
+			result.append(DaySection(day: k, items: v))
+		}
+		
+		return result
+		
+	}
+}
+
+struct DaySection {
+	var day: String
+	var items: Int
 }

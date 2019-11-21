@@ -16,11 +16,16 @@ class TasksViewController: UIViewController {
 	@IBOutlet weak var optionsButton: UIButton!
 	
 	private var tasks = [Task]()
-	private var order = Order.smart
+	private var sectionDays = [DaySection]()
+	private var order = Order.time
+	private var editMode: Bool = false
+	private var showCompleted: Bool = false
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		// TODO: Set background color to view and tableView
+		self.view.backgroundColor = UIColor.color(for: .background)
+		self.tasksTableView.backgroundColor = UIColor.color(for: .background)
 	}
 	
 	override func viewDidLoad() {
@@ -28,6 +33,7 @@ class TasksViewController: UIViewController {
 		super.viewDidLoad()
 		
 		tasks = Task.mock()
+		sectionDays = Task.getSections(for: tasks)
 		
 		tasksTableView.delegate = self
 		tasksTableView.dataSource = self
@@ -41,11 +47,69 @@ class TasksViewController: UIViewController {
 	
 	// MARK: - IBActions
 	@IBAction func optionsButtonTapped(_ sender: Any) {
-		// TODO: Show options
+		
+		let optionsVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		
+		if showCompleted {
+			let showCompletedAction = UIAlertAction(title: "Hide completed", style: .default) { _ in
+				self.showCompleted = false // Maybe change to fetch only non-completed
+			}
+			optionsVC.addAction(showCompletedAction)
+		} else {
+			let showCompletedAction = UIAlertAction(title: "Show completed", style: .default) { _ in
+				self.showCompleted = true // Maybe change to fetch all
+			}
+			optionsVC.addAction(showCompletedAction)
+		}
+		
+		if editMode {
+			let editModeAction = UIAlertAction(title: "Exit edit mode", style: .default) { _ in
+				self.editMode = false
+			}
+			optionsVC.addAction(editModeAction)
+		} else {
+			let editModeAction = UIAlertAction(title: "Enter edit mode", style: .default) { _ in
+				self.editMode = true
+			}
+			optionsVC.addAction(editModeAction)
+		}
+		
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+			self.dismiss(animated: true, completion: nil)
+		}
+		optionsVC.addAction(cancelAction)
+		
+		present(optionsVC, animated: true, completion: nil)
 	}
 	
 	@IBAction func orderSegmentedControlValueChanged(_ sender: Any) {
-		// TODO: Change order of tableView
+		
+		if orderSegmentedControl.selectedSegmentIndex == 0 {
+			
+			Task.order(tasks, by: .time) { orderedTasks in
+				self.order = .time
+				self.tasks = orderedTasks
+				self.tasksTableView.reloadData()
+			}
+			
+		} else if orderSegmentedControl.selectedSegmentIndex == 1 {
+			
+			Task.order(tasks, by: .priority) { orderedTasks in
+				self.order = .priority
+				self.tasks = orderedTasks
+				self.tasksTableView.reloadData()
+			}
+			
+		} else if orderSegmentedControl.selectedSegmentIndex == 2 {
+			
+			Task.order(tasks, by: .smart) { orderedTasks in
+				self.order = .smart
+				self.tasks = orderedTasks
+				self.tasksTableView.reloadData()
+			}
+			
+		}
+		
 	}
 	
 }
@@ -53,8 +117,30 @@ class TasksViewController: UIViewController {
 // MARK: - UITableView
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		if order == .time {
+			return sectionDays.count
+		}
+		return 1
+	}
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if tableView.numberOfSections > 1 {
+			return sectionDays[section].day
+		}
+		return nil
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return tasks.count
+		
+		if order == .time {
+			return sectionDays[section].items
+		}
+		if section == 0 {
+			return tasks.count
+		}
+		return 0
+		
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,6 +157,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 			
 		} else if order == .smart {
+			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.smartTaskCell.rawValue, for: indexPath) as? SmartTaskTableViewCell else {
 				return UITableViewCell()
 			}
@@ -86,7 +173,38 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 60
+		return 65
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		// TODO: Navigate to cell's info and pass editMode
+	}
+	
+	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		
+		let action = UIContextualAction(style: .normal, title: "Complete") { (_, _, _) in
+			self.tasks[indexPath.row].completed = true // TODO: Mark as completed in coreData
+			self.tasks.remove(at: indexPath.row)
+			tableView.reload()
+		}
+		
+		action.backgroundColor = .green // TODO: Change color and maybe add icon
+		
+		let configuration = UISwipeActionsConfiguration(actions: [action])
+		return configuration
+		
+	}
+	
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		
+		let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+			// TODO: Delete from core Data
+			self.tasks.remove(at: indexPath.row)
+			tableView.reload()
+		}
+		
+		let configuration = UISwipeActionsConfiguration(actions: [action])
+		return configuration
+		
+	}
 }

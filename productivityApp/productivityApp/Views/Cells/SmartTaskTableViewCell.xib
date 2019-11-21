@@ -62,7 +62,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="priorityColorView" destination="0Bg-w1-y5l" id="XlZ-PN-jZY"/>
-                <outlet property="progressView" destination="1z9-m0-O6A" id="wbL-Tz-dC5"/>
+                <outlet property="progressView" destination="eKc-QC-3B4" id="bDW-aT-TEb"/>
                 <outlet property="taskView" destination="utl-nP-JTn" id="N7g-mt-v0x"/>
                 <outlet property="titleLabel" destination="sxl-pq-cQC" id="Toj-Nx-UP8"/>
             </connections>

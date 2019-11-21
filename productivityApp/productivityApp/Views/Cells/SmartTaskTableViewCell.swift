@@ -11,7 +11,7 @@ import UIKit
 class SmartTaskTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var progressView: NSLayoutConstraint!
+	@IBOutlet weak var progressView: UIView!
 	@IBOutlet weak var priorityColorView: UIView!
 	@IBOutlet weak var taskView: UIView!
 	
@@ -21,28 +21,37 @@ class SmartTaskTableViewCell: UITableViewCell {
 		
 		super.awakeFromNib()
 		
+		self.contentView.backgroundColor = UIColor.color(for: .cell)
+		
 		taskView.layer.cornerRadius = 9
 		taskView.layer.masksToBounds = true
-		taskView.layer.borderColor = UIColor.gray.cgColor
+		taskView.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
 		taskView.layer.borderWidth = 0.5
 		
+		setProgressView()
 	}
 	
 	func setup() {
 		titleLabel.text = task.title
-		// TODO: Create progress view
+		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
+		
 	}
 	
-	private func setPriorityColor() {
+	func setProgressView() {
 		
-		switch task.priority {
-		case .low:
-			priorityColorView.backgroundColor = UIColor(hex: "6BB218")
-		case .medium:
-			priorityColorView.backgroundColor = UIColor(hex: "E8D811")
-		case .high:
-			priorityColorView.backgroundColor = UIColor(hex: "B1061B")
-		}
+		let shapeLayer = CAShapeLayer()
+		let center = progressView.center
+		let radius = progressView.frame.width / 2
+		let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 2, clockwise: true)
+		shapeLayer.path = circularPath.cgPath
+		
+		shapeLayer.strokeColor = UIColor.red.cgColor
+		shapeLayer.lineWidth = 10
+		
+		shapeLayer.lineCap = CAShapeLayerLineCap.round
+		
+		
+		progressView.layer.addSublayer(shapeLayer)
 		
 	}
 	
