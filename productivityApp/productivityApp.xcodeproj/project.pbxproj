@@ -20,6 +20,8 @@
 		0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */; };
 		0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323F02384B22200F76E88 /* SmartTaskTableViewCell.swift */; };
 		0B1323F62384E6FA00F76E88 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323F52384E6FA00F76E88 /* Enums.swift */; };
+		0B1366C8238721AF00BC42F1 /* AddButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B1366C7238721AF00BC42F1 /* AddButton.xib */; };
+		0B1366CA238723D800BC42F1 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1366C9238723D800BC42F1 /* AddButton.swift */; };
 		0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */; };
 		0B4CA5322385C4BE00AF557D /* UITableView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmartTaskTableViewCell.xib; sourceTree = "<group>"; };
 		0B1323F02384B22200F76E88 /* SmartTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartTaskTableViewCell.swift; sourceTree = "<group>"; };
 		0B1323F52384E6FA00F76E88 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		0B1366C7238721AF00BC42F1 /* AddButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButton.xib; sourceTree = "<group>"; };
+		0B1366C9238723D800BC42F1 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetail.storyboard; sourceTree = "<group>"; };
 		0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +102,7 @@
 		0B1323DF2384939E00F76E88 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B1366C42387216E00BC42F1 /* Custom */,
 				0B1323F72384E81100F76E88 /* Cells */,
 				0B1323E1238493BF00F76E88 /* Main.storyboard */,
 				0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */,
@@ -132,6 +137,15 @@
 				0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0B1366C42387216E00BC42F1 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				0B1366C7238721AF00BC42F1 /* AddButton.xib */,
+				0B1366C9238723D800BC42F1 /* AddButton.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +209,7 @@
 				0B1323E82384991500F76E88 /* TaskTableViewCell.xib in Resources */,
 				0B1323E2238493BF00F76E88 /* Main.storyboard in Resources */,
 				0B1323D62384936500F76E88 /* LaunchScreen.storyboard in Resources */,
+				0B1366C8238721AF00BC42F1 /* AddButton.xib in Resources */,
 				0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */,
 				0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */,
 				0B1323D32384936500F76E88 /* Assets.xcassets in Resources */,
@@ -211,6 +226,7 @@
 				0B1323E6238495E300F76E88 /* Task.swift in Sources */,
 				0B1323E42384953D00F76E88 /* TasksViewController.swift in Sources */,
 				0B1323EA2384992500F76E88 /* TaskTableViewCell.swift in Sources */,
+				0B1366CA238723D800BC42F1 /* AddButton.swift in Sources */,
 				0B1323ED2384AB5D00F76E88 /* UIColor+utils.swift in Sources */,
 				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
 				0B1323CA2384936100F76E88 /* AppDelegate.swift in Sources */,

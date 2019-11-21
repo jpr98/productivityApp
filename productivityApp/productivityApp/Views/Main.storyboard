@@ -48,18 +48,54 @@
                                     <action selector="optionsButtonTapped:" destination="Nry-DF-Qyk" eventType="touchUpInside" id="Jhe-Vr-9L6"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAG-Hz-Oc8" customClass="AddButton" customModule="productivityApp" customModuleProvider="target">
+                                <rect key="frame" x="25" y="821" width="186.5" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOe-Ii-tg3">
+                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="40"/>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4HH-8k-y4e">
+                                        <rect key="frame" x="0.0" y="2" width="37.5" height="36"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dh-3W-E3g">
+                                        <rect key="frame" x="45.5" y="0.0" width="141" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="2Dh-3W-E3g" secondAttribute="trailing" id="3Wu-8w-GXG"/>
+                                    <constraint firstItem="4HH-8k-y4e" firstAttribute="centerY" secondItem="rAG-Hz-Oc8" secondAttribute="centerY" id="7ON-l8-hCW"/>
+                                    <constraint firstItem="2Dh-3W-E3g" firstAttribute="centerY" secondItem="4HH-8k-y4e" secondAttribute="centerY" id="AUL-Dr-D6V"/>
+                                    <constraint firstItem="4HH-8k-y4e" firstAttribute="width" secondItem="rAG-Hz-Oc8" secondAttribute="width" multiplier="0.2:1" id="HJJ-Gl-RTQ"/>
+                                    <constraint firstItem="mOe-Ii-tg3" firstAttribute="width" secondItem="rAG-Hz-Oc8" secondAttribute="width" id="SZy-Pd-gVb"/>
+                                    <constraint firstItem="4HH-8k-y4e" firstAttribute="height" secondItem="rAG-Hz-Oc8" secondAttribute="height" id="Wrm-bb-Pf7"/>
+                                    <constraint firstItem="2Dh-3W-E3g" firstAttribute="leading" secondItem="4HH-8k-y4e" secondAttribute="trailing" constant="8" id="gUN-tE-8TN"/>
+                                    <constraint firstAttribute="height" constant="40" id="poJ-Gb-6qW"/>
+                                    <constraint firstItem="mOe-Ii-tg3" firstAttribute="height" secondItem="rAG-Hz-Oc8" secondAttribute="height" id="qOn-5X-1UU"/>
+                                    <constraint firstItem="mOe-Ii-tg3" firstAttribute="centerX" secondItem="rAG-Hz-Oc8" secondAttribute="centerX" id="so8-98-bR0"/>
+                                    <constraint firstItem="4HH-8k-y4e" firstAttribute="leading" secondItem="rAG-Hz-Oc8" secondAttribute="leading" id="uin-Mh-lQf"/>
+                                    <constraint firstItem="2Dh-3W-E3g" firstAttribute="height" secondItem="4HH-8k-y4e" secondAttribute="height" id="vW7-An-GDf"/>
+                                    <constraint firstItem="mOe-Ii-tg3" firstAttribute="centerY" secondItem="rAG-Hz-Oc8" secondAttribute="centerY" id="wtK-dA-gSh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Iaw-nu-dhj" firstAttribute="trailing" secondItem="Za9-p6-wfr" secondAttribute="trailing" constant="20" id="00D-9E-nce"/>
                             <constraint firstItem="Njs-6u-10v" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" constant="20" id="3n3-Wu-kR4"/>
                             <constraint firstItem="D7y-kY-H42" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" id="87d-05-ufB"/>
+                            <constraint firstItem="rAG-Hz-Oc8" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" constant="25" id="ErS-mP-tj7"/>
                             <constraint firstItem="D7y-kY-H42" firstAttribute="top" secondItem="TVU-J9-FvA" secondAttribute="bottom" constant="14" id="Ghn-RT-W0T"/>
                             <constraint firstItem="Iaw-nu-dhj" firstAttribute="trailing" secondItem="TVU-J9-FvA" secondAttribute="trailing" constant="15" id="JYd-i0-Gmt"/>
                             <constraint firstItem="TVU-J9-FvA" firstAttribute="leading" secondItem="Iaw-nu-dhj" secondAttribute="leading" constant="15" id="MR0-N7-Nxd"/>
                             <constraint firstItem="TVU-J9-FvA" firstAttribute="top" secondItem="Njs-6u-10v" secondAttribute="bottom" constant="22" id="SJX-p8-ZpR"/>
                             <constraint firstItem="D7y-kY-H42" firstAttribute="trailing" secondItem="Iaw-nu-dhj" secondAttribute="trailing" id="Se7-9c-cV0"/>
                             <constraint firstAttribute="bottom" secondItem="D7y-kY-H42" secondAttribute="bottom" id="Y4p-Dr-kzR"/>
+                            <constraint firstItem="rAG-Hz-Oc8" firstAttribute="width" secondItem="Iaw-nu-dhj" secondAttribute="width" multiplier="0.45:1" id="jCG-7a-iUl"/>
+                            <constraint firstAttribute="bottom" secondItem="rAG-Hz-Oc8" secondAttribute="bottom" constant="35" id="nOF-VV-Way"/>
                             <constraint firstItem="Njs-6u-10v" firstAttribute="top" secondItem="Iaw-nu-dhj" secondAttribute="top" constant="20" id="pco-bt-0Xi"/>
                             <constraint firstItem="Za9-p6-wfr" firstAttribute="top" secondItem="Iaw-nu-dhj" secondAttribute="top" id="wFR-8K-7ap"/>
                             <constraint firstItem="Iaw-nu-dhj" firstAttribute="trailing" secondItem="Njs-6u-10v" secondAttribute="trailing" constant="20" id="wyc-I3-pvE"/>
@@ -68,6 +104,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="ohq-sR-lNl"/>
                     <connections>
+                        <outlet property="addButton" destination="mOe-Ii-tg3" id="PrE-5l-s4k"/>
+                        <outlet property="addButtonImage" destination="4HH-8k-y4e" id="NUK-j9-Bdn"/>
+                        <outlet property="addButtonText" destination="2Dh-3W-E3g" id="6rK-AM-nAS"/>
+                        <outlet property="addButtonView" destination="rAG-Hz-Oc8" id="mzZ-db-3rA"/>
                         <outlet property="optionsButton" destination="Za9-p6-wfr" id="U8T-3H-VVw"/>
                         <outlet property="orderSegmentedControl" destination="TVU-J9-FvA" id="OhR-4v-ii1"/>
                         <outlet property="tasksTableView" destination="D7y-kY-H42" id="xlg-wu-CNI"/>
@@ -76,7 +116,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHk-w0-OSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="512" y="147"/>
+            <point key="canvasLocation" x="511.59420289855075" y="146.65178571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

@@ -21,8 +21,9 @@ class SmartTaskTableViewCell: UITableViewCell {
 		
 		super.awakeFromNib()
 		
-		self.contentView.backgroundColor = UIColor.color(for: .cell)
+		self.contentView.backgroundColor = UIColor.color(for: .background)
 		
+		taskView.backgroundColor = UIColor.color(for: .cell)
 		taskView.layer.cornerRadius = 9
 		taskView.layer.masksToBounds = true
 		taskView.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor

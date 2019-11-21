@@ -30,6 +30,16 @@ enum Order {
 	case time
 	case priority
 	case smart
+	
+	static func get(from index: Int) -> Order {
+		if index == 0 {
+			return time
+		} else if index == 1 {
+			return priority
+		} else {
+			return smart
+		}
+	}
 }
 
 enum Priority: Int {

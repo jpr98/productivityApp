@@ -15,6 +15,13 @@ class TasksViewController: UIViewController {
 	@IBOutlet weak var tasksTableView: UITableView!
 	@IBOutlet weak var optionsButton: UIButton!
 	
+	// Add Button View
+	@IBOutlet weak var addButtonView: AddButton!
+	@IBOutlet weak var addButton: UIButton!
+	@IBOutlet weak var addButtonImage: UIImageView!
+	@IBOutlet weak var addButtonText: UILabel!
+	
+	
 	private var tasks = [Task]()
 	private var sectionDays = [DaySection]()
 	private var order = Order.time
@@ -33,6 +40,10 @@ class TasksViewController: UIViewController {
 		super.viewDidLoad()
 		
 		tasks = Task.mock()
+		Task.order(tasks, by: order) { orderedTasks in
+			self.tasks = orderedTasks
+			
+		}
 		sectionDays = Task.getSections(for: tasks)
 		
 		tasksTableView.delegate = self
@@ -44,6 +55,9 @@ class TasksViewController: UIViewController {
 		
 	}
 	
+	func displayAddButtonView() {
+		
+	}
 	
 	// MARK: - IBActions
 	@IBAction func optionsButtonTapped(_ sender: Any) {
@@ -84,30 +98,11 @@ class TasksViewController: UIViewController {
 	
 	@IBAction func orderSegmentedControlValueChanged(_ sender: Any) {
 		
-		if orderSegmentedControl.selectedSegmentIndex == 0 {
-			
-			Task.order(tasks, by: .time) { orderedTasks in
-				self.order = .time
-				self.tasks = orderedTasks
-				self.tasksTableView.reloadData()
-			}
-			
-		} else if orderSegmentedControl.selectedSegmentIndex == 1 {
-			
-			Task.order(tasks, by: .priority) { orderedTasks in
-				self.order = .priority
-				self.tasks = orderedTasks
-				self.tasksTableView.reloadData()
-			}
-			
-		} else if orderSegmentedControl.selectedSegmentIndex == 2 {
-			
-			Task.order(tasks, by: .smart) { orderedTasks in
-				self.order = .smart
-				self.tasks = orderedTasks
-				self.tasksTableView.reloadData()
-			}
-			
+		order = Order.get(from: orderSegmentedControl.selectedSegmentIndex)
+		
+		Task.order(tasks, by: order) { orderedTasks in
+			self.tasks = orderedTasks
+			self.tasksTableView.reloadData()
 		}
 		
 	}
