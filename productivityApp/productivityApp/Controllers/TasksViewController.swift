@@ -22,11 +22,12 @@ class TasksViewController: UIViewController {
 	@IBOutlet weak var addButtonText: UILabel!
 	
 	
-	private var tasks = [Task]()
-	private var sectionDays = [DaySection]()
+	private var tasks = [[Task]]()
+	private var unreadyTasks = [Task]()
 	private var order = Order.time
 	private var editMode: Bool = false
 	private var showCompleted: Bool = false
+	private var currentOrderIndex: Int = 0
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -39,12 +40,10 @@ class TasksViewController: UIViewController {
 		
 		super.viewDidLoad()
 		
-		tasks = Task.mock()
-		Task.order(tasks, by: order) { orderedTasks in
+		unreadyTasks = Task.mock()
+		Task.order(array: unreadyTasks, by: order) { orderedTasks in
 			self.tasks = orderedTasks
-			
 		}
-		sectionDays = Task.getSections(for: tasks)
 		
 		tasksTableView.delegate = self
 		tasksTableView.dataSource = self
@@ -94,15 +93,24 @@ class TasksViewController: UIViewController {
 		optionsVC.addAction(cancelAction)
 		
 		present(optionsVC, animated: true, completion: nil)
+		
 	}
 	
 	@IBAction func orderSegmentedControlValueChanged(_ sender: Any) {
 		
 		order = Order.get(from: orderSegmentedControl.selectedSegmentIndex)
 		
-		Task.order(tasks, by: order) { orderedTasks in
-			self.tasks = orderedTasks
-			self.tasksTableView.reloadData()
+		DispatchQueue.global(qos: .userInitiated).async {
+			Task.order(matrix: self.tasks, by: self.order) { orderedTasks in
+				self.tasks = orderedTasks
+				
+				DispatchQueue.main.async {
+					let direction: Direction = self.currentOrderIndex < self.orderSegmentedControl.selectedSegmentIndex ? .toRight : .toLeft
+					self.currentOrderIndex = self.orderSegmentedControl.selectedSegmentIndex
+					
+					self.tasksTableView.reload(sections: self.tasks.count, direction, reloadData: true)
+				}
+			}
 		}
 		
 	}
@@ -113,29 +121,18 @@ class TasksViewController: UIViewController {
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		if order == .time {
-			return sectionDays.count
-		}
-		return 1
+		return tasks.count
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if tableView.numberOfSections > 1 {
-			return sectionDays[section].day
+			return tasks[section][0].dueDate.getString(for: .day)
 		}
 		return nil
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		if order == .time {
-			return sectionDays[section].items
-		}
-		if section == 0 {
-			return tasks.count
-		}
-		return 0
-		
+		return tasks[section].count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -146,7 +143,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 				return UITableViewCell()
 			}
 			
-			cell.task = tasks[indexPath.row]
+			cell.task = tasks[indexPath.section][indexPath.row]
 			cell.setup()
 			
 			return cell
@@ -157,7 +154,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 				return UITableViewCell()
 			}
 			
-			cell.task = tasks[indexPath.row]
+			cell.task = tasks[indexPath.section][indexPath.row]
 			cell.setup()
 			
 			return cell
@@ -178,9 +175,9 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		
 		let action = UIContextualAction(style: .normal, title: "Complete") { (_, _, _) in
-			self.tasks[indexPath.row].completed = true // TODO: Mark as completed in coreData
+			self.tasks[indexPath.section][indexPath.row].completed = true // TODO: Mark as completed in coreData
 			self.tasks.remove(at: indexPath.row)
-			tableView.reload()
+			tableView.reload(sections: self.tasks.count)
 		}
 		
 		action.backgroundColor = .green // TODO: Change color and maybe add icon
@@ -194,8 +191,8 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
 			// TODO: Delete from core Data
-			self.tasks.remove(at: indexPath.row)
-			tableView.reload()
+			self.tasks[indexPath.section].remove(at: indexPath.row)
+			tableView.reload(sections: self.tasks.count)
 		}
 		
 		let configuration = UISwipeActionsConfiguration(actions: [action])

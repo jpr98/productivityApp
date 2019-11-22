@@ -53,3 +53,9 @@ enum ViewType {
 	case cell
 	case priority(Priority)
 }
+
+enum Direction {
+	case toLeft
+	case toRight
+	case unknown
+}

@@ -7,38 +7,53 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Task {
+class Task: Object {
 	
-	var title: String
-	var description: String
-	var priority: Priority
-	var dueDate: Date
-	var timeToComplete: TimeInterval
-	var completed: Bool
+	@objc dynamic var title: String
+	@objc dynamic var descript: String
+	@objc dynamic private var priorityNumber: Int
+	@objc dynamic var dueDate: Date
+	@objc dynamic var timeToComplete: TimeInterval
+	@objc dynamic var completed: Bool
 	
-	init() {
+	var priority: Priority {
+		didSet {
+			priorityNumber = priority.rawValue
+		}
+	}
+	
+	required init() {
 		
 		title = ""
-		description = ""
-		priority = .low
+		descript = ""
+		priorityNumber = 0
 		dueDate = Date()
 		timeToComplete = TimeInterval()
 		completed = false
+		priority = .low
 		
 	}
 	
 	init(title: String, description: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool) {
 		
 		self.title = title
-		self.description = description
-		self.priority = priority
+		self.descript = description
+		self.priorityNumber = priority.rawValue
 		self.dueDate = dueDate
 		self.timeToComplete = timeToComplete
 		self.completed = completed
+		self.priority = priority
 		
 	}
 	
+	// MARK: - Realm
+	override static func ignoredProperties() -> [String] {
+        return ["priority"]
+    }
+	
+	// MARK: - Methods
 	static func mock() -> [Task] {
 		var mockData = [Task]()
 		
@@ -68,7 +83,7 @@ class Task {
 							 priority: .high,
 							 dueDate: Date(timeIntervalSince1970: 1574262000),
 							 timeToComplete: 100,
-							 completed: true))
+							 completed: false))
 		
 		mockData.append(Task(title: "Make dinner",
 							 description: "Spaghetti for two",
@@ -84,26 +99,42 @@ class Task {
 		return 0
 	}
 	
-	// MARK: - Ordering methods
-	static func order(_ tasks: [Task], by order: Order, completion: ([Task]) -> Void) {
+}
+
+// MARK: - Ordering methods (Static)
+extension Task {
+	static func order(array: [Task]? = nil, matrix: [[Task]]? = nil, by order: Order, completion: ([[Task]]) -> Void) {
 		
-		var orderedTasks = [Task]()
+		var taskArray = [Task]()
+		
+		if let t = convertToArray(matrix) {
+			taskArray = t
+		} else if let t = array {
+			taskArray = t
+		} else {
+			fatalError("Task.order(by:) needs at least one valid array or matrix!")
+		}
 		
 		switch order {
 		case .priority:
-			orderedTasks = orderByPriority(tasks)
+			taskArray = orderByPriority(taskArray)
 		case .time:
-			orderedTasks = orderByTime(tasks)
+			taskArray = orderByTime(taskArray)
 		case .smart:
-			orderedTasks = orderBySmart(tasks)
+			taskArray = orderBySmart(taskArray)
 		}
 		
 		// Maybe I can change this...
-		orderedTasks = orderedTasks.filter { (task) -> Bool in
+		taskArray = taskArray.filter { (task) -> Bool in
 			return !task.completed
 		}
 		
-		completion(orderedTasks)
+		if order == .time {
+			let timeOrder = prepareForTimeSections(taskArray)
+			completion(timeOrder)
+		} else {
+			completion([taskArray])
+		}
 		
 	}
 	
@@ -112,11 +143,37 @@ class Task {
 		var orderedTasks = tasks
 		
 		orderedTasks.sort { (first, second) -> Bool in
-			return first.dueDate > second.dueDate
+			return first.dueDate < second.dueDate
 		}
 		
+		print("BY TIME")
+		printHelper(t: orderedTasks)
 		return orderedTasks
 		
+	}
+	
+	private static func prepareForTimeSections(_ tasks: [Task]) -> [[Task]] {
+		
+		var result = [[Task]]()
+		var seenDays = Set<String>()
+		
+		for task in tasks {
+			var sameDayTasks = [Task]()
+			let currentTaskDay = task.dueDate.getString(for: .day)
+			if !seenDays.contains(currentTaskDay) {
+				for t in tasks {
+					if currentTaskDay == t.dueDate.getString(for: .day) {
+						sameDayTasks.append(t)
+					}
+				}
+				seenDays.insert(currentTaskDay)
+				result.append(sameDayTasks)
+			}
+		}
+		
+		printHelper(t: result)
+		
+		return result
 	}
 	
 	private static func orderByPriority(_ tasks: [Task]) -> [Task] {
@@ -127,6 +184,8 @@ class Task {
 			return first.priority.rawValue > second.priority.rawValue
 		}
 		
+		print("BY PRIORITY")
+		printHelper(t: orderedTasks)
 		return orderedTasks
 		
 	}
@@ -139,41 +198,48 @@ class Task {
 			return first.calculateRemainingTime() > second.calculateRemainingTime()
 		}
 		
+		print("BY SMART")
+		printHelper(t: orderedTasks)
 		return orderedTasks
 		
 	}
 	
-	// MARK: - Sections
-	static func getSections(for tasks: [Task]) -> [DaySection] {
+	private static func convertToArray(_ matrix: [[Task]]?) -> [Task]? {
 		
-		var daySections: [String:Int] = [:]
-		
-		let days = tasks.compactMap{ task -> String in
-			let formatter = DateFormatter()
-			formatter.dateFormat = "EEEE"
-			return formatter.string(from: task.dueDate)
-		}
-		
-		for day in days {
-			if let d = daySections[day] {
-				daySections[day] = d + 1
-			} else {
-				daySections[day] = 1
+		if let m = matrix {
+			var array = [Task]()
+			
+			for a in m {
+				for t in a {
+					array.append(t)
+				}
 			}
+			
+			return array
 		}
 		
-		var result = [DaySection]()
-		
-		for (k, v) in daySections {
-			result.append(DaySection(day: k, items: v))
-		}
-		
-		return result
+		return nil
 		
 	}
+	
 }
 
-struct DaySection {
-	var day: String
-	var items: Int
+// MARK: - Debugging helper functions
+extension Task {
+	static func printHelper(t: [Task]) {
+		for task in t {
+			print(task.title)
+		}
+		print("DONE1")
+	}
+	
+	static func printHelper(t: [[Task]]) {
+		for a in t {
+			for task in a {
+				print(task.title)
+			}
+			print("---------------")
+		}
+		print("DONE2")
+	}
 }

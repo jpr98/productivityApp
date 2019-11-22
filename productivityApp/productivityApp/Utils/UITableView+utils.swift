@@ -9,9 +9,23 @@
 import UIKit
 
 extension UITableView {
-	func reload() {
-		let range = NSMakeRange(0, self.numberOfSections)
+	func reload(sections: Int, _ direction: Direction = .unknown, reloadData: Bool = false) {
+		
+		if reloadData {
+			self.reloadData()
+		}
+		
+		let range = NSMakeRange(0, sections)
 		let sections = NSIndexSet(indexesIn: range)
-		self.reloadSections(sections as IndexSet, with: .automatic)
+		
+		switch direction {
+		case .toLeft:
+			self.reloadSections(sections as IndexSet, with: .right)
+		case .toRight:
+			self.reloadSections(sections as IndexSet, with: .left)
+		case .unknown:
+			self.reloadSections(sections as IndexSet, with: .automatic)
+		}
+		
 	}
 }
