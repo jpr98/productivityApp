@@ -12,7 +12,7 @@ import RealmSwift
 class Task: Object {
 	
 	@objc dynamic var title: String
-	@objc dynamic var descript: String
+	@objc dynamic var notes: String
 	@objc dynamic private var priorityNumber: Int
 	@objc dynamic var dueDate: Date
 	@objc dynamic var timeToComplete: TimeInterval
@@ -27,7 +27,7 @@ class Task: Object {
 	required init() {
 		
 		title = ""
-		descript = ""
+		notes = ""
 		priorityNumber = 0
 		dueDate = Date()
 		timeToComplete = TimeInterval()
@@ -36,10 +36,10 @@ class Task: Object {
 		
 	}
 	
-	init(title: String, description: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool) {
+	init(title: String, notes: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool) {
 		
 		self.title = title
-		self.descript = description
+		self.notes = notes
 		self.priorityNumber = priority.rawValue
 		self.dueDate = dueDate
 		self.timeToComplete = timeToComplete
@@ -58,35 +58,35 @@ class Task: Object {
 		var mockData = [Task]()
 		
 		mockData.append(Task(title: "Walk the dog",
-							 description: "",
+							 notes: "",
 							 priority: .low,
 							 dueDate: Date(timeIntervalSince1970: 1574186400),
 							 timeToComplete: 100,
 							 completed: false))
 		
 		mockData.append(Task(title: "Finish work presentation",
-							 description: "I need to finish the marketing presentation",
+							 notes: "I need to finish the marketing presentation",
 							 priority: .high,
 							 dueDate: Date(timeIntervalSince1970: 1574200800),
 							 timeToComplete: 100,
 							 completed: false))
 		
 		mockData.append(Task(title: "Call mom",
-							 description: "Talk about christmas vacation",
+							 notes: "Talk about christmas vacation",
 							 priority: .low,
 							 dueDate: Date(timeIntervalSince1970: 1574193600),
 							 timeToComplete: 100,
 							 completed: false))
 		
 		mockData.append(Task(title: "Buy groceries",
-							 description: "Check grocery list",
+							 notes: "Check grocery list",
 							 priority: .high,
 							 dueDate: Date(timeIntervalSince1970: 1574262000),
 							 timeToComplete: 100,
 							 completed: false))
 		
 		mockData.append(Task(title: "Make dinner",
-							 description: "Spaghetti for two",
+							 notes: "Spaghetti for two",
 							 priority: .medium,
 							 dueDate: Date(timeIntervalSince1970: 1574280000),
 							 timeToComplete: 100,

@@ -18,4 +18,18 @@ extension Date {
 			fatalError("Date.getString(for:.\(component)) not implemented yet!")
 		}
 	}
+	
+	func getDayMonth() -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "EEEE, MMMM dd"
+		return formatter.string(from: self)
+	}
+	
+	func getTime() -> String {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "hh:mm a"
+		formatter.amSymbol = "am"
+		formatter.pmSymbol = "pm"
+		return formatter.string(from: self)
+	}
 }

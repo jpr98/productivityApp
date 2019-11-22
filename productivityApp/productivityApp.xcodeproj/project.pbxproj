@@ -24,6 +24,7 @@
 		0B4CA5322385C4BE00AF557D /* UITableView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */; };
 		0B60E32D238782CE00099F89 /* Date+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E32C238782CE00099F89 /* Date+utils.swift */; };
 		0B60E32F2387917500099F89 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E32E2387917500099F89 /* TaskDetailViewController.swift */; };
+		0B60E3312387A9BF00099F89 /* TimeInterval+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */; };
 		9A10DDD7330556EAD092526D /* Pods_productivityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F5DB50633C81F679BF9506 /* Pods_productivityApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+utils.swift"; sourceTree = "<group>"; };
 		0B60E32C238782CE00099F89 /* Date+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+utils.swift"; sourceTree = "<group>"; };
 		0B60E32E2387917500099F89 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+utils.swift"; sourceTree = "<group>"; };
 		72F5DB50633C81F679BF9506 /* Pods_productivityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_productivityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9F3677C80E7D640C4C57BE /* Pods-productivityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-productivityApp.release.xcconfig"; path = "Target Support Files/Pods-productivityApp/Pods-productivityApp.release.xcconfig"; sourceTree = "<group>"; };
 		C719781BDFD557751EC2EC80 /* Pods-productivityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-productivityApp.debug.xcconfig"; path = "Target Support Files/Pods-productivityApp/Pods-productivityApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				0B1323F52384E6FA00F76E88 /* Enums.swift */,
 				0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */,
 				0B60E32C238782CE00099F89 /* Date+utils.swift */,
+				0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				0B1323ED2384AB5D00F76E88 /* UIColor+utils.swift in Sources */,
 				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
 				0B60E32F2387917500099F89 /* TaskDetailViewController.swift in Sources */,
+				0B60E3312387A9BF00099F89 /* TimeInterval+utils.swift in Sources */,
 				0B1323CA2384936100F76E88 /* AppDelegate.swift in Sources */,
 				0B1323F62384E6FA00F76E88 /* Enums.swift in Sources */,
 				0B4CA5322385C4BE00AF557D /* UITableView+utils.swift in Sources */,
@@ -439,7 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.productivityApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,7 +462,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.productivityApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

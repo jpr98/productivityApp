@@ -21,7 +21,6 @@ class TasksViewController: UIViewController {
 	@IBOutlet weak var addButtonImage: UIImageView!
 	@IBOutlet weak var addButtonText: UILabel!
 	
-	
 	private var tasks = [[Task]]()
 	private var unreadyTasks = [Task]()
 	private var order = Order.time

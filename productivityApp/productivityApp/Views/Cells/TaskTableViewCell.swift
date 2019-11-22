@@ -33,19 +33,8 @@ class TaskTableViewCell: UITableViewCell {
 	
 	func setup() {
 		titleLabel.text = task.title
-		dueTimeLabel.text = formatDate()
+		dueTimeLabel.text = task.dueDate.getTime()
 		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
-	}
-	
-	private func formatDate() -> String {
-		
-		let formatter = DateFormatter()
-		formatter.dateFormat = "hh:mm a"
-		formatter.amSymbol = "am"
-		formatter.pmSymbol = "pm"
-		
-		return formatter.string(from: task.dueDate)
-		
 	}
 	
 }
