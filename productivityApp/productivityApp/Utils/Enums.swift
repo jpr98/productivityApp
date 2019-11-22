@@ -12,6 +12,7 @@ enum Identifiers: String {
 	
 	case taskCell = "taskCell"
 	case smartTaskCell = "smartTaskCell"
+	case tagCell = "tagCell"
 	
 	func getNib() -> UINib {
 		
@@ -20,6 +21,8 @@ enum Identifiers: String {
 			return UINib(nibName: "TaskTableViewCell", bundle: nil)
 		case .smartTaskCell:
 			return UINib(nibName: "SmartTaskTableViewCell", bundle: nil)
+		case .tagCell:
+			return UINib(nibName: "TagCollectionViewCell", bundle: nil)
 		}
 		
 	}

@@ -53,6 +53,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOe-Ii-tg3">
                                         <rect key="frame" x="0.0" y="0.0" width="186.5" height="40"/>
+                                        <connections>
+                                            <action selector="addButtonTapped:" destination="Nry-DF-Qyk" eventType="touchUpInside" id="qBp-hg-eYT"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4HH-8k-y4e">
                                         <rect key="frame" x="0.0" y="2" width="37.5" height="36"/>

@@ -114,6 +114,10 @@ class TasksViewController: UIViewController {
 		
 	}
 	
+	@IBAction func addButtonTapped(_ sender: Any) {
+		showTaskDetailViewController(task: Task(), isEditing: true)
+	}
+	
 }
 
 // MARK: - UITableView

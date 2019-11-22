@@ -17,10 +17,18 @@ class Task: Object {
 	@objc dynamic var dueDate: Date
 	@objc dynamic var timeToComplete: TimeInterval
 	@objc dynamic var completed: Bool
+	@objc dynamic private var tagNumber: Int
+	
 	
 	var priority: Priority {
 		didSet {
 			priorityNumber = priority.rawValue
+		}
+	}
+	
+	var tag: Tag {
+		didSet {
+			tagNumber = tag.id
 		}
 	}
 	
@@ -32,11 +40,13 @@ class Task: Object {
 		dueDate = Date()
 		timeToComplete = TimeInterval()
 		completed = false
+		tagNumber = 0
 		priority = .low
+		tag = Tag()
 		
 	}
 	
-	init(title: String, notes: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool) {
+	init(title: String, notes: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool, tag: Tag) {
 		
 		self.title = title
 		self.notes = notes
@@ -44,13 +54,15 @@ class Task: Object {
 		self.dueDate = dueDate
 		self.timeToComplete = timeToComplete
 		self.completed = completed
+		self.tagNumber = tag.id
 		self.priority = priority
+		self.tag = tag
 		
 	}
 	
 	// MARK: - Realm
 	override static func ignoredProperties() -> [String] {
-        return ["priority"]
+        return ["priority","tag"]
     }
 	
 	// MARK: - Methods
@@ -62,35 +74,40 @@ class Task: Object {
 							 priority: .low,
 							 dueDate: Date(timeIntervalSince1970: 1574186400),
 							 timeToComplete: 100,
-							 completed: false))
+							 completed: false,
+							 tag: Tag()))
 		
 		mockData.append(Task(title: "Finish work presentation",
 							 notes: "I need to finish the marketing presentation",
 							 priority: .high,
 							 dueDate: Date(timeIntervalSince1970: 1574200800),
 							 timeToComplete: 100,
-							 completed: false))
+							 completed: false,
+							 tag: Tag()))
 		
 		mockData.append(Task(title: "Call mom",
 							 notes: "Talk about christmas vacation",
 							 priority: .low,
 							 dueDate: Date(timeIntervalSince1970: 1574193600),
 							 timeToComplete: 100,
-							 completed: false))
+							 completed: false,
+							 tag: Tag()))
 		
 		mockData.append(Task(title: "Buy groceries",
 							 notes: "Check grocery list",
 							 priority: .high,
 							 dueDate: Date(timeIntervalSince1970: 1574262000),
 							 timeToComplete: 100,
-							 completed: false))
+							 completed: false,
+							 tag: Tag()))
 		
 		mockData.append(Task(title: "Make dinner",
 							 notes: "Spaghetti for two",
 							 priority: .medium,
 							 dueDate: Date(timeIntervalSince1970: 1574280000),
 							 timeToComplete: 100,
-							 completed: false))
+							 completed: false,
+							 tag: Tag()))
 		
 		return mockData
 	}

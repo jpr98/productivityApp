@@ -37,6 +37,8 @@ class TaskDetailViewController: UIViewController {
 		tagsCollectionView.dataSource = self
 		tagsCollectionView.delegate = self
 		
+		tagsCollectionView.register(Identifiers.tagCell.getNib(), forCellWithReuseIdentifier: Identifiers.tagCell.rawValue)
+		
 		setTaskData()
 		setInteractions()
 		
@@ -114,11 +116,19 @@ extension TaskDetailViewController: UITextViewDelegate {
 extension TaskDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		<#code#>
+		return 3
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		<#code#>
+		
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.tagCell.rawValue, for: indexPath) as? TagCollectionViewCell else {
+			return UICollectionViewCell()
+		}
+		
+		cell.nameLabel.text = "TagName\(indexPath.row)"
+		
+		return cell
+		
 	}
 	
 }
