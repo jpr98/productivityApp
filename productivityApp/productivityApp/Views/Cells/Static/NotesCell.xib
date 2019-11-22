@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotesCell" rowHeight="146" id="XFs-Qo-UDV" customClass="NotesCell" customModule="productivityApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="501" height="146"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XFs-Qo-UDV" id="RKn-Td-0Hi">
+                <rect key="frame" x="0.0" y="0.0" width="501" height="146"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kok-28-enx">
+                        <rect key="frame" x="18" y="1" width="465" height="105"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Kok-28-enx" firstAttribute="top" secondItem="RKn-Td-0Hi" secondAttribute="top" constant="1" id="EJP-FC-zHP"/>
+                    <constraint firstItem="Kok-28-enx" firstAttribute="leading" secondItem="RKn-Td-0Hi" secondAttribute="leading" constant="18" id="Fhc-aL-CrX"/>
+                    <constraint firstAttribute="trailing" secondItem="Kok-28-enx" secondAttribute="trailing" constant="18" id="U0W-1k-5nv"/>
+                    <constraint firstAttribute="bottom" secondItem="Kok-28-enx" secondAttribute="bottom" constant="40" id="llP-No-R8b"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="notesTextView" destination="Kok-28-enx" id="4D2-UG-679"/>
+            </connections>
+            <point key="canvasLocation" x="29.710144927536234" y="77.678571428571431"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -29,10 +29,12 @@ class TasksViewController: UIViewController {
 	private var currentOrderIndex: Int = 0
 	
 	override func viewWillAppear(_ animated: Bool) {
+		
 		super.viewWillAppear(animated)
-		// TODO: Set background color to view and tableView
+		
 		self.view.backgroundColor = UIColor.color(for: .background)
-		self.tasksTableView.backgroundColor = UIColor.color(for: .background)
+		tasksTableView.backgroundColor = UIColor.color(for: .background)
+		
 	}
 	
 	override func viewDidLoad() {
@@ -115,7 +117,8 @@ class TasksViewController: UIViewController {
 	}
 	
 	@IBAction func addButtonTapped(_ sender: Any) {
-		showTaskDetailViewController(task: Task(), isEditing: true)
+		showTaskDetailTableViewController()
+		//showTaskDetailViewController(task: Task(), isEditing: true, presenter: self)
 	}
 	
 }

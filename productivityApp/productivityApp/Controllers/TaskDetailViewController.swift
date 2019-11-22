@@ -15,8 +15,8 @@ class TaskDetailViewController: UIViewController {
 	}
 	
 	@IBOutlet weak var contentView: UIView!
-	@IBOutlet weak var dateLabel: UILabel!
-	@IBOutlet weak var timeLabel: UILabel!
+	@IBOutlet weak var dateTextField: UITextField!
+	@IBOutlet weak var timeTextField: UITextField!
 	@IBOutlet weak var titleTextField: UITextField!
 	@IBOutlet weak var titleUnderlineView: UIView!
 	@IBOutlet weak var descriptionTextView: UITextView!
@@ -24,10 +24,22 @@ class TaskDetailViewController: UIViewController {
 	@IBOutlet weak var priorityLabel: UILabel!
 	@IBOutlet weak var priorityPickerView: UIView!
 	@IBOutlet weak var timeToCompleteLabel: UILabel!
-	@IBOutlet weak var timeToCompletePickerLabel: UILabel!
+	@IBOutlet weak var timeToCompleteTextField: UITextField!
 	
 	var task = Task()
 	var editingMode: Bool = true
+	
+	override func viewWillAppear(_ animated: Bool) {
+		
+		super.viewWillAppear(animated)
+		
+		self.view.backgroundColor = UIColor.color(for: .background)
+		contentView.backgroundColor = UIColor.color(for: .background)
+		tagsCollectionView.backgroundColor = UIColor.color(for: .background)
+		titleTextField.backgroundColor = UIColor.color(for: .background)
+		descriptionTextView.backgroundColor = UIColor.color(for: .background)
+		
+	}
 	
 	override func viewDidLoad() {
 		
@@ -39,8 +51,9 @@ class TaskDetailViewController: UIViewController {
 		
 		tagsCollectionView.register(Identifiers.tagCell.getNib(), forCellWithReuseIdentifier: Identifiers.tagCell.rawValue)
 		
+		// TODO: collectionview horizontal layout
+		
 		setTaskData()
-		setInteractions()
 		
 	}
 	
@@ -51,51 +64,31 @@ class TaskDetailViewController: UIViewController {
 		} else {
 			// We have an existing task, so set it's info
 			
-			dateLabel.text = task.dueDate.getDayMonth()
-			timeLabel.text = task.dueDate.getTime()
+			dateTextField.text = task.dueDate.getDayMonth()
+			timeTextField.text = task.dueDate.getTime()
 			titleTextField.text = task.title
 			descriptionTextView.text = task.notes
 			// TODO: collectionView = set selected tag
 			// TODO: priorityPickerView = set selected priority
-			timeToCompletePickerLabel.text = task.timeToComplete.getHoursMinutes()
+			timeToCompleteTextField.text = task.timeToComplete.getHoursMinutes()
 			
-			// TODO: Show button to start working on task
+			// TODO: Show button to start working on task (aka timer)
 		}
 		
 	}
 	
-	func setInteractions() {
-		
-		dateLabel.isUserInteractionEnabled = editingMode
-		let dateTap = UITapGestureRecognizer(target: self, action: #selector(dateTapHandler))
-		dateLabel.addGestureRecognizer(dateTap)
-		
-		timeLabel.isUserInteractionEnabled = editingMode
-		let timeTap = UITapGestureRecognizer(target: self, action: #selector(timeTapHandler))
-		timeLabel.addGestureRecognizer(timeTap)
-		
-		timeToCompletePickerLabel.isUserInteractionEnabled = editingMode
-		let timeToCompleteTap = UITapGestureRecognizer(target: self, action: #selector(timeToCompleteHandler))
-		timeToCompletePickerLabel.addGestureRecognizer(timeToCompleteTap)
-		
-	}
-	
-	@objc func dateTapHandler() {
-		print("dateTap")
-	}
-	
-	@objc func timeTapHandler() {
-		print("timeTap")
-	}
-	
-	@objc func timeToCompleteHandler() {
-		print("timeToCompleteTap")
-	}
-	
 	// MARK: - UI Actions
+	@IBAction func dateTextFieldEditingDidEnd(_ sender: Any) {
+	}
+	
+	@IBAction func timeTextFieldEditingDidEnd(_ sender: Any) {
+	}
+	
 	@IBAction func titleTextFieldEditingDidEnd(_ sender: Any) {
 	}
 	
+	@IBAction func timeToCompleteTextFieldEditingDidEnd(_ sender: Any) {
+	}
 	
 }
 
@@ -135,13 +128,15 @@ extension TaskDetailViewController: UICollectionViewDelegate, UICollectionViewDa
 
 // MARK: - ShowVC Extension
 extension UIViewController {
-	func showTaskDetailViewController(task: Task, isEditing: Bool) {
+	func showTaskDetailViewController(task: Task, isEditing: Bool, presenter: UIViewController) {
 		
 		let vc = TaskDetailViewController.makeTaskDetailViewController()
 		
 		vc.task = task
 		vc.editingMode = isEditing
+		vc.modalPresentationStyle = .overFullScreen
 		
-		present(vc, animated: true, completion: nil)
+		presenter.present(vc, animated: true, completion: nil)
+		
 	}
 }
