@@ -8,25 +8,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriorityCell" rowHeight="176" id="JCS-rS-YG4" customClass="PriorityCell" customModule="productivityApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="511" height="176"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PriorityCell" rowHeight="83" id="JCS-rS-YG4" customClass="PriorityCell" customModule="productivityApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="511" height="83"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JCS-rS-YG4" id="jya-mE-nt8">
-                <rect key="frame" x="0.0" y="0.0" width="511" height="176"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JCS-rS-YG4" id="jya-mE-nt8">
+                <rect key="frame" x="0.0" y="0.0" width="511" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcQ-dS-WZw">
-                        <rect key="frame" x="20" y="77.5" width="251" height="21"/>
+                        <rect key="frame" x="20" y="28" width="351" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Oc-Vu-nfY" customClass="PriorityView" customModule="productivityApp" customModuleProvider="target">
-                        <rect key="frame" x="291" y="8" width="200" height="160"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Oc-Vu-nfY">
+                        <rect key="frame" x="391" y="8" width="100" height="60"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ogx-Ow-TmH">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG6-m3-Gh3">
+                                        <rect key="frame" x="0.0" y="16" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DG6-m3-Gh3" secondAttribute="height" multiplier="1:1" id="eUR-Kh-anh"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="lowPriorityButtonTapped:" destination="JCS-rS-YG4" eventType="touchUpInside" id="uCV-hp-Xzm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CR7-Vr-xwM">
+                                        <rect key="frame" x="36" y="16" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CR7-Vr-xwM" secondAttribute="height" id="2vh-eT-mXg"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="mediumPriorityButtonTapped:" destination="JCS-rS-YG4" eventType="touchUpInside" id="WgR-oF-Sj3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sce-bf-e9j">
+                                        <rect key="frame" x="72" y="16" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="sce-bf-e9j" secondAttribute="height" multiplier="1:1" id="It1-7C-czE"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="highPriorityButtonTapped:" destination="JCS-rS-YG4" eventType="touchUpInside" id="ABm-EG-34g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="200" id="EwV-Nj-5e0"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="NiR-BO-Dk7"/>
+                            <constraint firstItem="Ogx-Ow-TmH" firstAttribute="leading" secondItem="2Oc-Vu-nfY" secondAttribute="leading" id="AZS-8j-Ydc"/>
+                            <constraint firstAttribute="width" constant="100" id="EwV-Nj-5e0"/>
+                            <constraint firstItem="Ogx-Ow-TmH" firstAttribute="top" secondItem="2Oc-Vu-nfY" secondAttribute="top" id="THs-3J-BpQ"/>
+                            <constraint firstAttribute="height" constant="60" id="V2g-lr-ZmB"/>
+                            <constraint firstAttribute="trailing" secondItem="Ogx-Ow-TmH" secondAttribute="trailing" id="mV7-XQ-kCp"/>
+                            <constraint firstAttribute="bottom" secondItem="Ogx-Ow-TmH" secondAttribute="bottom" id="pio-ip-Q3n"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -40,10 +78,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="highPriorityButton" destination="sce-bf-e9j" id="EzD-PC-YQa"/>
+                <outlet property="lowPriorityButton" destination="DG6-m3-Gh3" id="cST-H9-San"/>
+                <outlet property="mediumPriorityButton" destination="CR7-Vr-xwM" id="IAT-9E-ypy"/>
                 <outlet property="priorityLabel" destination="UcQ-dS-WZw" id="DwN-cs-esw"/>
+                <outlet property="priorityPickStackView" destination="Ogx-Ow-TmH" id="n5e-9r-xJN"/>
                 <outlet property="priorityPickView" destination="2Oc-Vu-nfY" id="EZi-mt-sff"/>
             </connections>
-            <point key="canvasLocation" x="273.1884057971015" y="127.90178571428571"/>
+            <point key="canvasLocation" x="273.1884057971015" y="96.763392857142847"/>
         </tableViewCell>
     </objects>
 </document>

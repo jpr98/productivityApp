@@ -69,7 +69,7 @@ extension TaskDetailTableViewController {
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.priorityCell.rawValue) as? PriorityCell else {
 					return UITableViewCell()
 				}
-				cell.configure()
+				cell.configure(delegate: self)
 				return cell
 			} else if indexPath.row == 1 {
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.timeToCompleteCell.rawValue) as? TimeToCompleteCell else {
@@ -79,6 +79,18 @@ extension TaskDetailTableViewController {
 			}
 		}
 		return UITableViewCell()
+	}
+	
+}
+
+// MARK: - PriorityCellDelegate
+extension TaskDetailTableViewController: PriorityCellDelegate {
+	
+	func prioritySelected(_ priority: Priority) {
+		
+		// TODO: Set priority to task
+		print("Priority number \(priority.rawValue) selected")
+		
 	}
 	
 }

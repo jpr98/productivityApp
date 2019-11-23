@@ -23,7 +23,6 @@
 		0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */; };
 		0B4CA5322385C4BE00AF557D /* UITableView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */; };
 		0B60E32D238782CE00099F89 /* Date+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E32C238782CE00099F89 /* Date+utils.swift */; };
-		0B60E32F2387917500099F89 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E32E2387917500099F89 /* TaskDetailViewController.swift */; };
 		0B60E3312387A9BF00099F89 /* TimeInterval+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */; };
 		0B60E3332387B19100099F89 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3322387B19100099F89 /* Tag.swift */; };
 		0B60E3352387B30400099F89 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */; };
@@ -41,7 +40,6 @@
 		0BF5A8652388810C003B2CB0 /* PriorityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF5A8642388810C003B2CB0 /* PriorityCell.xib */; };
 		0BF5A867238881FC003B2CB0 /* TimeToCompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A866238881FC003B2CB0 /* TimeToCompleteCell.swift */; };
 		0BF5A8692388822C003B2CB0 /* TimeToCompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF5A8682388822C003B2CB0 /* TimeToCompleteCell.xib */; };
-		0BF5A86C23888512003B2CB0 /* PriorityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A86B23888512003B2CB0 /* PriorityView.swift */; };
 		9A10DDD7330556EAD092526D /* Pods_productivityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72F5DB50633C81F679BF9506 /* Pods_productivityApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +62,6 @@
 		0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetail.storyboard; sourceTree = "<group>"; };
 		0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+utils.swift"; sourceTree = "<group>"; };
 		0B60E32C238782CE00099F89 /* Date+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+utils.swift"; sourceTree = "<group>"; };
-		0B60E32E2387917500099F89 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+utils.swift"; sourceTree = "<group>"; };
 		0B60E3322387B19100099F89 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -82,7 +79,6 @@
 		0BF5A8642388810C003B2CB0 /* PriorityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriorityCell.xib; sourceTree = "<group>"; };
 		0BF5A866238881FC003B2CB0 /* TimeToCompleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToCompleteCell.swift; sourceTree = "<group>"; };
 		0BF5A8682388822C003B2CB0 /* TimeToCompleteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeToCompleteCell.xib; sourceTree = "<group>"; };
-		0BF5A86B23888512003B2CB0 /* PriorityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityView.swift; sourceTree = "<group>"; };
 		72F5DB50633C81F679BF9506 /* Pods_productivityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_productivityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9F3677C80E7D640C4C57BE /* Pods-productivityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-productivityApp.release.xcconfig"; path = "Target Support Files/Pods-productivityApp/Pods-productivityApp.release.xcconfig"; sourceTree = "<group>"; };
 		C719781BDFD557751EC2EC80 /* Pods-productivityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-productivityApp.debug.xcconfig"; path = "Target Support Files/Pods-productivityApp/Pods-productivityApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				0B1323E32384953D00F76E88 /* TasksViewController.swift */,
-				0B60E32E2387917500099F89 /* TaskDetailViewController.swift */,
 				0BF5A86023886896003B2CB0 /* TaskDetailTableViewController.swift */,
 			);
 			path = Controllers;
@@ -178,7 +173,6 @@
 		0B1323F72384E81100F76E88 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0BF5A86A238884D5003B2CB0 /* View Subclasses */,
 				0BF5A84F2388653C003B2CB0 /* Static */,
 				0B1323E92384992500F76E88 /* TaskTableViewCell.swift */,
 				0B1323E72384991500F76E88 /* TaskTableViewCell.xib */,
@@ -207,14 +201,6 @@
 				0BF5A8682388822C003B2CB0 /* TimeToCompleteCell.xib */,
 			);
 			path = Static;
-			sourceTree = "<group>";
-		};
-		0BF5A86A238884D5003B2CB0 /* View Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				0BF5A86B23888512003B2CB0 /* PriorityView.swift */,
-			);
-			path = "View Subclasses";
 			sourceTree = "<group>";
 		};
 		C398DF9544C4DF57C40A94F7 /* Frameworks */ = {
@@ -363,7 +349,6 @@
 				0B60E32D238782CE00099F89 /* Date+utils.swift in Sources */,
 				0BF5A85F23886846003B2CB0 /* TagPickerCell.swift in Sources */,
 				0B1323E42384953D00F76E88 /* TasksViewController.swift in Sources */,
-				0BF5A86C23888512003B2CB0 /* PriorityView.swift in Sources */,
 				0B60E3372387B3B000099F89 /* TagCollectionViewCell.swift in Sources */,
 				0B1323EA2384992500F76E88 /* TaskTableViewCell.swift in Sources */,
 				0B1323ED2384AB5D00F76E88 /* UIColor+utils.swift in Sources */,
@@ -371,7 +356,6 @@
 				0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */,
 				0BF5A867238881FC003B2CB0 /* TimeToCompleteCell.swift in Sources */,
 				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
-				0B60E32F2387917500099F89 /* TaskDetailViewController.swift in Sources */,
 				0BF5A863238880E0003B2CB0 /* PriorityCell.swift in Sources */,
 				0B60E3312387A9BF00099F89 /* TimeInterval+utils.swift in Sources */,
 				0B1323CA2384936100F76E88 /* AppDelegate.swift in Sources */,
