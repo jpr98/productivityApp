@@ -28,6 +28,7 @@ class NotesCell: UITableViewCell {
 		
 		notesTextView.delegate = self
 		notesTextView.text = ""
+		notesTextView.keyboardDismissable()
 		prepareForNotEditing()
 		
 	}

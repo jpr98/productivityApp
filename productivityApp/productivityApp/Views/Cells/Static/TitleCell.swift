@@ -28,6 +28,7 @@ class TitleCell: UITableViewCell {
 		self.delegate = delegate
 		
 		titleTextField.placeholder = "Title"
+		titleTextField.keyboardDismissable()
 		
 	}
 	

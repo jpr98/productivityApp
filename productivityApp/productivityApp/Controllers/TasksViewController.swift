@@ -117,7 +117,7 @@ class TasksViewController: UIViewController {
 	}
 	
 	@IBAction func addButtonTapped(_ sender: Any) {
-		showTaskDetailTableViewController()
+		showTaskDetailTableViewController(task: Task())
 		//showTaskDetailViewController(task: Task(), isEditing: true, presenter: self)
 	}
 	

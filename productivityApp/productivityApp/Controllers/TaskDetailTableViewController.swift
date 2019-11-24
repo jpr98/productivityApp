@@ -14,15 +14,21 @@ class TaskDetailTableViewController: UITableViewController {
 		return UIStoryboard(name: "TaskDetail", bundle: nil).instantiateViewController(withIdentifier: String(describing: TaskDetailTableViewController.self)) as! TaskDetailTableViewController
 	}
 	
+	var task = Task()
+	
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
+		
+		UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
 		
 		tableView.separatorStyle = .none
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.allowsSelection = false
 		tableView.alwaysBounceVertical = false
 		registerCells()
+		
+		tableView.keyboardDismissMode = .onDrag
 		
 	}
 	
@@ -114,10 +120,7 @@ extension TaskDetailTableViewController {
 extension TaskDetailTableViewController: DueDateCellDelegate {
 	
 	func dueDateSelected(_ date: Date) {
-		
-		// TODO: Set dueDate to task
-		print("\(date.getDayMonth()) selected as due date")
-		
+		task.dueDate = date
 	}
 	
 }
@@ -126,18 +129,16 @@ extension TaskDetailTableViewController: DueDateCellDelegate {
 extension TaskDetailTableViewController: TitleCellDelegate {
 	
 	func titleSelected(title: String) {
-		
-		// TODO: Add title to task
-		print("New title: \(title)")
+		task.title = title
 	}
+	
 }
 
 // MARK: - NotesCellDelegate
 extension TaskDetailTableViewController: NotesCellDelegate {
 	
 	func notesAdded(notes: String) {
-		// TODO: add notes to task
-		print("Got these notes: \(notes)")
+		task.notes = notes
 	}
 	
 }
@@ -159,8 +160,7 @@ extension TaskDetailTableViewController: TagPickerCellDelegate {
 	}
 	
 	func tagSelected(tag: Tag) {
-		// TODO: Add tag to task
-		print("Tag for task \(tag.title)")
+		task.tag = tag
 	}
 	
 }
@@ -169,10 +169,7 @@ extension TaskDetailTableViewController: TagPickerCellDelegate {
 extension TaskDetailTableViewController: PriorityCellDelegate {
 	
 	func prioritySelected(_ priority: Priority) {
-		
-		// TODO: Set priority to task
-		print("Priority number \(priority.rawValue) selected")
-		
+		task.priority = priority
 	}
 	
 }
@@ -181,18 +178,18 @@ extension TaskDetailTableViewController: PriorityCellDelegate {
 extension TaskDetailTableViewController: TimeToCompleteCellDelegate {
 	
 	func timeToCompleteSelected(_ time: TimeInterval) {
-		
-		// TODO: Set timeToComplete to task
-		print("TimeToComplete \(time) selected")
+		task.timeToComplete = time
 	}
 	
 }
 
 // MARK: - ShowVC Extension
 extension UIViewController {
-	func showTaskDetailTableViewController() {
+	func showTaskDetailTableViewController(task: Task) {
 		
 		let vc = TaskDetailTableViewController.makeTaskDetailTableViewController()
+		
+		vc.task = task
 		
 		present(vc, animated: true, completion: nil)
 		
