@@ -15,6 +15,7 @@ class TaskDetailTableViewController: UITableViewController {
 	}
 	
 	var task = Task()
+	var newTask = true
 	
 	override func viewDidLoad() {
 		
@@ -32,6 +33,10 @@ class TaskDetailTableViewController: UITableViewController {
 		
 	}
 	
+	@objc func handleDraggedDown() {
+		
+	}
+
 	func registerCells() {
 		
 		self.tableView.register(Identifiers.dueDateCell.getNib(), forCellReuseIdentifier: Identifiers.dueDateCell.rawValue)
@@ -62,6 +67,7 @@ class TaskDetailTableViewController: UITableViewController {
 		alertController.addAction(cancelAction)
 		
 		self.present(alertController, animated: true, completion: nil)
+		
 	}
 	
 }
@@ -70,45 +76,75 @@ class TaskDetailTableViewController: UITableViewController {
 extension TaskDetailTableViewController {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
 		if indexPath.section == 0 {
+			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.dueDateCell.rawValue) as? DueDateCell else {
 				return UITableViewCell()
 			}
-			cell.configure(delegate: self)
+			
+			let date = newTask ? Date() : task.dueDate
+			cell.configure(delegate: self, date: date)
+			
 			return cell
+			
 		} else if indexPath.section == 1 {
+			
 			if indexPath.row == 0 {
+				
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.titleCell.rawValue) as? TitleCell else {
 					return UITableViewCell()
 				}
-				cell.configure(delegate: self)
+				
+				cell.configure(delegate: self, title: task.title)
+				
 				return cell
+				
 			} else {
+				
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.notesCell.rawValue) as? NotesCell else {
 					return UITableViewCell()
 				}
-				cell.configure(delegate: self)
+				
+				cell.configure(delegate: self, notes: task.notes)
+				
 				return cell
+				
 			}
+			
 		} else if indexPath.section == 2 {
+			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tagPickerCell.rawValue) as? TagPickerCell else {
 				return UITableViewCell()
 			}
-			cell.configure(delegate: self, vc: self)
+			
+			cell.configure(delegate: self, vc: self, tags: [Tag](), selectedTag: task.tag)
+			
 			return cell
+			
 		} else if indexPath.section == 3 {
+			
 			if indexPath.row == 0 {
+				
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.priorityCell.rawValue) as? PriorityCell else {
 					return UITableViewCell()
 				}
-				cell.configure(delegate: self)
+				
+				let priority = newTask ? nil : task.priority
+				cell.configure(delegate: self, prioritySelected: priority)
+				
 				return cell
+				
 			} else if indexPath.row == 1 {
+				
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.timeToCompleteCell.rawValue) as? TimeToCompleteCell else {
 					return UITableViewCell()
 				}
-				cell.configure(delegate: self)
+				
+				cell.configure(delegate: self, time: task.timeToComplete)
+				
 				return cell
+				
 			}
 		}
 		return UITableViewCell()
@@ -185,11 +221,14 @@ extension TaskDetailTableViewController: TimeToCompleteCellDelegate {
 
 // MARK: - ShowVC Extension
 extension UIViewController {
-	func showTaskDetailTableViewController(task: Task) {
+	func showTaskDetailTableViewController(task: Task?) {
 		
 		let vc = TaskDetailTableViewController.makeTaskDetailTableViewController()
 		
-		vc.task = task
+		if let task = task {
+			vc.task = task
+			vc.newTask = false
+		}
 		
 		present(vc, animated: true, completion: nil)
 		

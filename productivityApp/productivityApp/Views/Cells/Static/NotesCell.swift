@@ -22,20 +22,24 @@ class NotesCell: UITableViewCell {
 		super.awakeFromNib()
 	}
 	
-	func configure(delegate: NotesCellDelegate) {
+	func configure(delegate: NotesCellDelegate, notes: String) {
 		
 		self.delegate = delegate
 		
 		notesTextView.delegate = self
-		notesTextView.text = ""
+		notesTextView.text = notes
 		notesTextView.keyboardDismissable()
 		prepareForNotEditing()
 		
 	}
 	
 	fileprivate func prepareForEditing() {
-		notesTextView.text = ""
-		notesTextView.textColor = .black
+		
+		if notesTextView.text == "Notes..." {
+			notesTextView.text = ""
+			notesTextView.textColor = .black
+		}
+		
 	}
 	
 	fileprivate func prepareForNotEditing() {

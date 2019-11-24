@@ -14,7 +14,7 @@ class Tag {
 	var title: String
 	
 	init() {
-		id = 0
+		id = -1
 		title = ""
 	}
 	

@@ -22,9 +22,9 @@ class TagPickerCell: UITableViewCell {
 	
 	var tags = [Tag]()
 	
-	private var selectedTag: String = "" {
+	private var selectedTag: Int = -1 {
 		didSet {
-			if selectedTag == "" {
+			if selectedTag == -1 {
 				tagHasBeenSelected = false
 			} else {
 				tagHasBeenSelected = true
@@ -38,7 +38,7 @@ class TagPickerCell: UITableViewCell {
 		super.awakeFromNib()
 	}
 	
-	func configure(delegate: TagPickerCellDelegate, vc: TaskDetailTableViewController) {
+	func configure(delegate: TagPickerCellDelegate, vc: TaskDetailTableViewController, tags: [Tag], selectedTag: Tag) {
 		
 		self.delegate = delegate
 		self.vc = vc
@@ -52,10 +52,14 @@ class TagPickerCell: UITableViewCell {
 		collectionView.showsHorizontalScrollIndicator = false
 		collectionView.reloadData()
 		
-		tags.append(Tag(id: 0, title: "School"))
-		tags.append(Tag(id: 0, title: "Work"))
-		tags.append(Tag(id: 0, title: "Home"))
-
+		self.tags = tags
+		self.tags.append(Tag(id: 0, title: "School"))
+		self.tags.append(Tag(id: 0, title: "Work"))
+		self.tags.append(Tag(id: 0, title: "Home"))
+		
+		if selectedTag.id != -1 {
+			self.selectedTag = selectedTag.id
+		}
 	}
 }
 
@@ -75,7 +79,7 @@ extension TagPickerCell: UICollectionViewDelegate, UICollectionViewDataSource, U
 			}
 			
 			if tagHasBeenSelected {
-				let selected = selectedTag == tags[indexPath.row].title
+				let selected = selectedTag == tags[indexPath.row].id
 				cell.configure(tag: tags[indexPath.row], tagHasBeenSelected: true, selected: selected)
 			} else {
 				cell.configure(tag: tags[indexPath.row])
@@ -107,10 +111,10 @@ extension TagPickerCell: UICollectionViewDelegate, UICollectionViewDataSource, U
 			
 			delegate?.tagSelected(tag: tags[indexPath.row])
 			
-			if tags[indexPath.row].title == selectedTag {
-				selectedTag = ""
+			if tags[indexPath.row].id == selectedTag {
+				selectedTag = -1
 			} else {
-				selectedTag = tags[indexPath.row].title
+				selectedTag = tags[indexPath.row].id
 			}
 			
 			collectionView.reloadData()

@@ -23,10 +23,11 @@ class TitleCell: UITableViewCell {
 		super.awakeFromNib()
 	}
 	
-	func configure(delegate: TitleCellDelegate) {
+	func configure(delegate: TitleCellDelegate, title: String) {
 		
 		self.delegate = delegate
 		
+		titleTextField.text = title
 		titleTextField.placeholder = "Title"
 		titleTextField.keyboardDismissable()
 		

@@ -29,7 +29,7 @@ class TimeToCompleteCell: UITableViewCell {
 		super.awakeFromNib()
 	}
 	
-	func configure(delegate: TimeToCompleteCellDelegate) {
+	func configure(delegate: TimeToCompleteCellDelegate, time: TimeInterval) {
 		
 		self.delegate = delegate
 		
@@ -37,6 +37,10 @@ class TimeToCompleteCell: UITableViewCell {
 		
 		timePicker.delegate = self
 		timePicker.dataSource = self
+		
+		if time != 0 {
+			timeToCompleteTextField.text = time.getHoursMinutes()
+		}
 		
 		timeToCompleteTextField.tintColor = .clear
 		timeToCompleteTextField.inputView = timePicker

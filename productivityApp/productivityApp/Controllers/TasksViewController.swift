@@ -117,8 +117,7 @@ class TasksViewController: UIViewController {
 	}
 	
 	@IBAction func addButtonTapped(_ sender: Any) {
-		showTaskDetailTableViewController(task: Task())
-		//showTaskDetailViewController(task: Task(), isEditing: true, presenter: self)
+		showTaskDetailTableViewController(task: nil)
 	}
 	
 }
@@ -175,7 +174,9 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		// TODO: Navigate to cell's info and pass editMode
+		
+		showTaskDetailTableViewController(task: tasks[indexPath.section][indexPath.row])
+		
 	}
 	
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

@@ -26,7 +26,7 @@ class DueDateCell: UITableViewCell {
 		super.awakeFromNib()
 	}
 	
-	func configure(delegate: DueDateCellDelegate) {
+	func configure(delegate: DueDateCellDelegate, date: Date) {
 		
 		self.delegate = delegate
 		
@@ -35,13 +35,20 @@ class DueDateCell: UITableViewCell {
 		datePicker.tag = 0
 		datePicker.datePickerMode = .dateAndTime
 		
-		dateTextField.text = ""
+		if date.getTime() == Date().getTime() {
+			dateTextField.text = ""
+			timeTextField.text = ""
+		} else {
+			dateTextField.text = date.getDayMonth()
+			timeTextField.text = date.getTime()
+		}
+		
 		dateTextField.placeholder = Date().getDayMonth()
 		dateTextField.tintColor = .clear
 		dateTextField.inputView = datePicker
 		dateTextField.inputAccessoryView = toolBar
 		
-		timeTextField.text = ""
+		
 		timeTextField.placeholder = Date().getTime()
 		timeTextField.tintColor = .clear
 		timeTextField.inputView = datePicker
