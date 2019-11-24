@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tml-zL-AaS" customClass="AddTagCollectionViewCell" customModule="productivityApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="246" height="237"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ccT-Lv-JdW">
+                <rect key="frame" x="0.0" y="0.0" width="246" height="237"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpx-Ck-2Xg">
+                        <rect key="frame" x="0.0" y="0.0" width="246" height="237"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K6-6v-eoF">
+                                <rect key="frame" x="0.0" y="0.0" width="246" height="237"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <connections>
+                                    <action selector="addTaggButtonTapped:" destination="tml-zL-AaS" eventType="touchUpInside" id="rr1-5x-e2O"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KIn-Hd-0yo">
+                                <rect key="frame" x="37" y="37.5" width="172" height="162"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KIn-Hd-0yo" firstAttribute="centerX" secondItem="3K6-6v-eoF" secondAttribute="centerX" id="6I5-kP-kVo"/>
+                            <constraint firstItem="KIn-Hd-0yo" firstAttribute="height" secondItem="3K6-6v-eoF" secondAttribute="height" multiplier="0.7:1" id="I0w-9s-1Di"/>
+                            <constraint firstAttribute="trailing" secondItem="3K6-6v-eoF" secondAttribute="trailing" id="PdZ-jR-1pX"/>
+                            <constraint firstItem="KIn-Hd-0yo" firstAttribute="centerY" secondItem="3K6-6v-eoF" secondAttribute="centerY" id="Uh2-5m-g7C"/>
+                            <constraint firstItem="KIn-Hd-0yo" firstAttribute="width" secondItem="3K6-6v-eoF" secondAttribute="width" multiplier="0.7:1" id="XLF-J3-Nch"/>
+                            <constraint firstItem="3K6-6v-eoF" firstAttribute="leading" secondItem="Zpx-Ck-2Xg" secondAttribute="leading" id="XdS-sg-wvi"/>
+                            <constraint firstAttribute="bottom" secondItem="3K6-6v-eoF" secondAttribute="bottom" id="cFn-Ox-fob"/>
+                            <constraint firstItem="3K6-6v-eoF" firstAttribute="top" secondItem="Zpx-Ck-2Xg" secondAttribute="top" id="cvs-42-nKq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Zpx-Ck-2Xg" firstAttribute="top" secondItem="ccT-Lv-JdW" secondAttribute="top" id="7ZN-DZ-yUW"/>
+                    <constraint firstAttribute="bottom" secondItem="Zpx-Ck-2Xg" secondAttribute="bottom" id="9fC-t3-Hkd"/>
+                    <constraint firstAttribute="trailing" secondItem="Zpx-Ck-2Xg" secondAttribute="trailing" id="QOg-6E-yuO"/>
+                    <constraint firstItem="Zpx-Ck-2Xg" firstAttribute="leading" secondItem="ccT-Lv-JdW" secondAttribute="leading" id="jdC-Zs-96t"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="246" height="237"/>
+            <connections>
+                <outlet property="addTagButton" destination="3K6-6v-eoF" id="8Od-GB-3Ow"/>
+                <outlet property="addTagImageView" destination="KIn-Hd-0yo" id="Qsa-IS-BoX"/>
+                <outlet property="addTagView" destination="Zpx-Ck-2Xg" id="nCu-wt-skO"/>
+            </connections>
+            <point key="canvasLocation" x="42.028985507246382" y="160.37946428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
+</document>

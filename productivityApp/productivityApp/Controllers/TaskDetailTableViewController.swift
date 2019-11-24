@@ -32,6 +32,27 @@ class TaskDetailTableViewController: UITableViewController {
 		self.tableView.register(Identifiers.timeToCompleteCell.getNib(), forCellReuseIdentifier: Identifiers.timeToCompleteCell.rawValue)
 	}
 	
+	func presentAlertForTag(completionHandler: @escaping (String?) -> Void) {
+		
+		let alertController = UIAlertController(title: "Tag", message: "Add a new tag", preferredStyle: .alert)
+		
+		alertController.addTextField { textField in
+			textField.placeholder = "Tag name"
+		}
+		
+		let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+			completionHandler(alertController.textFields?[0].text)
+		}
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+			completionHandler(nil)
+		}
+		
+		alertController.addAction(addAction)
+		alertController.addAction(cancelAction)
+		
+		self.present(alertController, animated: true, completion: nil)
+	}
+	
 }
 
 // MARK: - UITableView
@@ -42,7 +63,7 @@ extension TaskDetailTableViewController {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.dueDateCell.rawValue) as? DueDateCell else {
 				return UITableViewCell()
 			}
-			cell.dateTextFiedl.text = "hello"
+			cell.configure(delegate: self)
 			return cell
 		} else if indexPath.section == 1 {
 			if indexPath.row == 0 {
@@ -62,7 +83,7 @@ extension TaskDetailTableViewController {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tagPickerCell.rawValue) as? TagPickerCell else {
 				return UITableViewCell()
 			}
-			cell.backgroundColor = .red
+			cell.configure(vc: self)
 			return cell
 		} else if indexPath.section == 3 {
 			if indexPath.row == 0 {
@@ -75,10 +96,23 @@ extension TaskDetailTableViewController {
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.timeToCompleteCell.rawValue) as? TimeToCompleteCell else {
 					return UITableViewCell()
 				}
+				cell.configure(delegate: self)
 				return cell
 			}
 		}
 		return UITableViewCell()
+	}
+	
+}
+
+// MARK: - DueDateCellDelegate
+extension TaskDetailTableViewController: DueDateCellDelegate {
+	
+	func dueDateSelected(_ date: Date) {
+		
+		// TODO: Set dueDate to task
+		print("\(date.getDayMonth()) selected as due date")
+		
 	}
 	
 }
@@ -91,6 +125,17 @@ extension TaskDetailTableViewController: PriorityCellDelegate {
 		// TODO: Set priority to task
 		print("Priority number \(priority.rawValue) selected")
 		
+	}
+	
+}
+
+// MARK: - TimeToCompleteCellDelegate
+extension TaskDetailTableViewController: TimeToCompleteCellDelegate {
+	
+	func timeToCompleteSelected(_ time: TimeInterval) {
+		
+		// TODO: Set timeToComplete to task
+		print("TimeToComplete \(time) selected")
 	}
 	
 }

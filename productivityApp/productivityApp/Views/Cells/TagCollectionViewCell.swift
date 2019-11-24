@@ -16,4 +16,14 @@ class TagCollectionViewCell: UICollectionViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
+	
+	func configure(tag: Tag, tagHasBeenSelected: Bool = false, selected: Bool = false) {
+		nameLabel.text = tag.title
+		if tagHasBeenSelected {
+			tagView.backgroundColor = selected ? .red : .gray
+		} else {
+			tagView.backgroundColor = .red
+		}
+		tagView.layer.cornerRadius = self.frame.height / 2
+	}
 }

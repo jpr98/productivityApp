@@ -21,18 +21,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikZ-j2-qNx">
-                        <rect key="frame" x="20" y="42.5" width="250" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="6" y="44" width="278" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Hv2-8K-rhh" firstAttribute="width" secondItem="yb2-m1-oe1" secondAttribute="width" id="8Cp-rY-tgM"/>
-                    <constraint firstItem="ikZ-j2-qNx" firstAttribute="leading" secondItem="yb2-m1-oe1" secondAttribute="leading" constant="20" id="9LU-CE-F3a"/>
+                    <constraint firstItem="ikZ-j2-qNx" firstAttribute="leading" secondItem="yb2-m1-oe1" secondAttribute="leading" constant="6" id="9LU-CE-F3a"/>
                     <constraint firstItem="ikZ-j2-qNx" firstAttribute="centerX" secondItem="Hv2-8K-rhh" secondAttribute="centerX" id="Cc1-7R-npg"/>
                     <constraint firstItem="ikZ-j2-qNx" firstAttribute="centerY" secondItem="Hv2-8K-rhh" secondAttribute="centerY" id="Oa1-ez-Dp5"/>
-                    <constraint firstAttribute="trailing" secondItem="ikZ-j2-qNx" secondAttribute="trailing" constant="20" id="TTd-ac-SOF"/>
+                    <constraint firstAttribute="trailing" secondItem="ikZ-j2-qNx" secondAttribute="trailing" constant="6" id="TTd-ac-SOF"/>
                     <constraint firstItem="Hv2-8K-rhh" firstAttribute="centerY" secondItem="yb2-m1-oe1" secondAttribute="centerY" id="hj2-4S-d3c"/>
                     <constraint firstItem="Hv2-8K-rhh" firstAttribute="centerX" secondItem="yb2-m1-oe1" secondAttribute="centerX" id="pzQ-QV-lkc"/>
                     <constraint firstItem="Hv2-8K-rhh" firstAttribute="height" secondItem="yb2-m1-oe1" secondAttribute="height" id="rpf-Yn-gul"/>

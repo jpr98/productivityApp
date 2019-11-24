@@ -30,7 +30,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
+                            <action selector="timeToCompleteTextFieldEditingDidBegin:" destination="fnE-nM-cQr" eventType="editingDidBegin" id="jn8-BD-7WF"/>
                             <action selector="timeToCompleteTextFieldEditingDidEnd:" destination="fnE-nM-cQr" eventType="editingDidEnd" id="7mh-n2-Nwq"/>
+                            <action selector="timeToCompleteTextFieldValueChanged:" destination="fnE-nM-cQr" eventType="valueChanged" id="hbD-8f-Mg6"/>
                         </connections>
                     </textField>
                 </subviews>

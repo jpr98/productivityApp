@@ -13,6 +13,7 @@ enum Identifiers: String {
 	case taskCell = "taskCell"
 	case smartTaskCell = "smartTaskCell"
 	case tagCell = "tagCell"
+	case addTagCell = "addTagCell"
 	
 	case dueDateCell = "DueDateCell"
 	case titleCell = "TitleCell"
@@ -30,6 +31,8 @@ enum Identifiers: String {
 			return UINib(nibName: "SmartTaskTableViewCell", bundle: nil)
 		case .tagCell:
 			return UINib(nibName: "TagCollectionViewCell", bundle: nil)
+		case .addTagCell:
+			return UINib(nibName: "AddTagCollectionViewCell", bundle: nil)
 		case .dueDateCell:
 			return UINib(nibName: "DueDateCell", bundle: nil)
 		case .titleCell:

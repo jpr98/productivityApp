@@ -23,7 +23,9 @@
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
+                            <action selector="dateTextFieldEditingDidBegin:" destination="fHG-6B-Wd7" eventType="editingDidBegin" id="vnB-m9-Zar"/>
                             <action selector="dateTextFieldEditingDidEnd:" destination="fHG-6B-Wd7" eventType="editingDidEnd" id="I8w-ZU-YMO"/>
+                            <action selector="dateTextFieldValueChanged:" destination="fHG-6B-Wd7" eventType="valueChanged" id="3wT-Q0-c6G"/>
                         </connections>
                     </textField>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="9:00 pm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pd1-Cb-m3s">
@@ -33,9 +35,6 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <textInputTraits key="textInputTraits"/>
-                        <connections>
-                            <action selector="timeTextFieldEditingDidEnd:" destination="fHG-6B-Wd7" eventType="editingDidEnd" id="LzL-2j-Bzw"/>
-                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
@@ -49,7 +48,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="dateTextFiedl" destination="zk5-C9-1WU" id="JXz-bC-Fgy"/>
+                <outlet property="dateTextField" destination="zk5-C9-1WU" id="aUW-bB-90J"/>
                 <outlet property="timeTextField" destination="pd1-Cb-m3s" id="Haf-Oo-j7c"/>
             </connections>
             <point key="canvasLocation" x="106.5217391304348" y="113.50446428571428"/>

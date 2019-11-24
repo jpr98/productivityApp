@@ -22,6 +22,9 @@
 		0B1323F62384E6FA00F76E88 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1323F52384E6FA00F76E88 /* Enums.swift */; };
 		0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */; };
 		0B4CA5322385C4BE00AF557D /* UITableView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */; };
+		0B51DD762389DC0B00547D60 /* Double+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B51DD752389DC0B00547D60 /* Double+utils.swift */; };
+		0B51DD782389F3A800547D60 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B51DD772389F3A800547D60 /* AddTagCollectionViewCell.swift */; };
+		0B51DD7A2389F3B800547D60 /* AddTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B51DD792389F3B800547D60 /* AddTagCollectionViewCell.xib */; };
 		0B60E32D238782CE00099F89 /* Date+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E32C238782CE00099F89 /* Date+utils.swift */; };
 		0B60E3312387A9BF00099F89 /* TimeInterval+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */; };
 		0B60E3332387B19100099F89 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3322387B19100099F89 /* Tag.swift */; };
@@ -61,6 +64,9 @@
 		0B1323F52384E6FA00F76E88 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		0B15A7F123871D120006B0C9 /* TaskDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetail.storyboard; sourceTree = "<group>"; };
 		0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+utils.swift"; sourceTree = "<group>"; };
+		0B51DD752389DC0B00547D60 /* Double+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+utils.swift"; sourceTree = "<group>"; };
+		0B51DD772389F3A800547D60 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B51DD792389F3B800547D60 /* AddTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		0B60E32C238782CE00099F89 /* Date+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+utils.swift"; sourceTree = "<group>"; };
 		0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+utils.swift"; sourceTree = "<group>"; };
 		0B60E3322387B19100099F89 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -166,6 +172,7 @@
 				0B4CA5312385C4BE00AF557D /* UITableView+utils.swift */,
 				0B60E32C238782CE00099F89 /* Date+utils.swift */,
 				0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */,
+				0B51DD752389DC0B00547D60 /* Double+utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -178,8 +185,10 @@
 				0B1323E72384991500F76E88 /* TaskTableViewCell.xib */,
 				0B1323F02384B22200F76E88 /* SmartTaskTableViewCell.swift */,
 				0B1323EE2384B08600F76E88 /* SmartTaskTableViewCell.xib */,
-				0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */,
 				0B60E3362387B3B000099F89 /* TagCollectionViewCell.swift */,
+				0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */,
+				0B51DD772389F3A800547D60 /* AddTagCollectionViewCell.swift */,
+				0B51DD792389F3B800547D60 /* AddTagCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -291,6 +300,7 @@
 				0BF5A8692388822C003B2CB0 /* TimeToCompleteCell.xib in Resources */,
 				0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */,
 				0BF5A85B23886719003B2CB0 /* NotesCell.xib in Resources */,
+				0B51DD7A2389F3B800547D60 /* AddTagCollectionViewCell.xib in Resources */,
 				0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */,
 				0B1323D32384936500F76E88 /* Assets.xcassets in Resources */,
 			);
@@ -356,6 +366,7 @@
 				0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */,
 				0BF5A867238881FC003B2CB0 /* TimeToCompleteCell.swift in Sources */,
 				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
+				0B51DD762389DC0B00547D60 /* Double+utils.swift in Sources */,
 				0BF5A863238880E0003B2CB0 /* PriorityCell.swift in Sources */,
 				0B60E3312387A9BF00099F89 /* TimeInterval+utils.swift in Sources */,
 				0B1323CA2384936100F76E88 /* AppDelegate.swift in Sources */,
@@ -365,6 +376,7 @@
 				0B4CA5322385C4BE00AF557D /* UITableView+utils.swift in Sources */,
 				0B1323CC2384936100F76E88 /* SceneDelegate.swift in Sources */,
 				0B60E3332387B19100099F89 /* Tag.swift in Sources */,
+				0B51DD782389F3A800547D60 /* AddTagCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
