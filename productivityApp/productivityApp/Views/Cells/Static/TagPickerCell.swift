@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol TagPickerCellDelegate: class {
+	func createTag(with title: String, completionHandler: (_ success: Bool, _ newTags: [Tag]) -> Void)
+	func tagSelected(tag: Tag)
+}
+
 class TagPickerCell: UITableViewCell {
 	
 	@IBOutlet weak var collectionView: UICollectionView!
 	
 	weak var vc: TaskDetailTableViewController?
+	weak var delegate: TagPickerCellDelegate?
+	
 	var tags = [Tag]()
 	
 	private var selectedTag: String = "" {
@@ -31,8 +38,9 @@ class TagPickerCell: UITableViewCell {
 		super.awakeFromNib()
 	}
 	
-	func configure(vc: TaskDetailTableViewController) {
+	func configure(delegate: TagPickerCellDelegate, vc: TaskDetailTableViewController) {
 		
+		self.delegate = delegate
 		self.vc = vc
 		
 		collectionView.delegate = self
@@ -73,7 +81,6 @@ extension TagPickerCell: UICollectionViewDelegate, UICollectionViewDataSource, U
 				cell.configure(tag: tags[indexPath.row])
 			}
 			
-			
 			return cell
 			
 		} else {
@@ -88,7 +95,6 @@ extension TagPickerCell: UICollectionViewDelegate, UICollectionViewDataSource, U
 				cell.configure(delegate: self)
 			}
 			
-			
 			return cell
 			
 		}
@@ -98,6 +104,8 @@ extension TagPickerCell: UICollectionViewDelegate, UICollectionViewDataSource, U
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		if indexPath.row < tags.count {
+			
+			delegate?.tagSelected(tag: tags[indexPath.row])
 			
 			if tags[indexPath.row].title == selectedTag {
 				selectedTag = ""
@@ -123,14 +131,20 @@ extension TagPickerCell: UICollectionViewDelegate, UICollectionViewDataSource, U
 	
 }
 
-// MARK: AddTagCollectionViewCellDelegate
+// MARK: - AddTagCollectionViewCellDelegate
 extension TagPickerCell: AddTagCollectionViewCellDelegate {
 	
 	func askedToAddTag() {
 		vc?.presentAlertForTag(completionHandler: { tagName in
 			if let name = tagName {
-				self.tags.append(Tag(id: self.tags.count, title: name))
-				self.collectionView.reloadData()
+				
+				self.delegate?.createTag(with: name, completionHandler: { (success, newTags) in
+					if success {
+						self.tags = newTags
+						self.collectionView.reloadData()
+					}
+				})
+				
 			}
 		})
 	}

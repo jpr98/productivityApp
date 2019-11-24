@@ -30,6 +30,7 @@
 		0B60E3332387B19100099F89 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3322387B19100099F89 /* Tag.swift */; };
 		0B60E3352387B30400099F89 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */; };
 		0B60E3372387B3B000099F89 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3362387B3B000099F89 /* TagCollectionViewCell.swift */; };
+		0BBF6E94238A110A002AF3FF /* UIView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E93238A110A002AF3FF /* UIView+utils.swift */; };
 		0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A85023886550003B2CB0 /* DueDateCell.swift */; };
 		0BF5A85323886569003B2CB0 /* DueDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0BF5A85223886569003B2CB0 /* DueDateCell.xib */; };
 		0BF5A85523886637003B2CB0 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A85423886637003B2CB0 /* TitleCell.swift */; };
@@ -72,6 +73,7 @@
 		0B60E3322387B19100099F89 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		0B60E3362387B3B000099F89 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		0BBF6E93238A110A002AF3FF /* UIView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+utils.swift"; sourceTree = "<group>"; };
 		0BF5A85023886550003B2CB0 /* DueDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateCell.swift; sourceTree = "<group>"; };
 		0BF5A85223886569003B2CB0 /* DueDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DueDateCell.xib; sourceTree = "<group>"; };
 		0BF5A85423886637003B2CB0 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				0B60E32C238782CE00099F89 /* Date+utils.swift */,
 				0B60E3302387A9BF00099F89 /* TimeInterval+utils.swift */,
 				0B51DD752389DC0B00547D60 /* Double+utils.swift */,
+				0BBF6E93238A110A002AF3FF /* UIView+utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				0B60E32D238782CE00099F89 /* Date+utils.swift in Sources */,
 				0BF5A85F23886846003B2CB0 /* TagPickerCell.swift in Sources */,
 				0B1323E42384953D00F76E88 /* TasksViewController.swift in Sources */,
+				0BBF6E94238A110A002AF3FF /* UIView+utils.swift in Sources */,
 				0B60E3372387B3B000099F89 /* TagCollectionViewCell.swift in Sources */,
 				0B1323EA2384992500F76E88 /* TaskTableViewCell.swift in Sources */,
 				0B1323ED2384AB5D00F76E88 /* UIColor+utils.swift in Sources */,

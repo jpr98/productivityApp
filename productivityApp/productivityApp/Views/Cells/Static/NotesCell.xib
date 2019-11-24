@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kok-28-enx">
-                        <rect key="frame" x="18" y="1" width="465" height="105"/>
+                        <rect key="frame" x="18" y="1" width="465" height="85"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -27,7 +27,7 @@
                     <constraint firstItem="Kok-28-enx" firstAttribute="top" secondItem="RKn-Td-0Hi" secondAttribute="top" constant="1" id="EJP-FC-zHP"/>
                     <constraint firstItem="Kok-28-enx" firstAttribute="leading" secondItem="RKn-Td-0Hi" secondAttribute="leading" constant="18" id="Fhc-aL-CrX"/>
                     <constraint firstAttribute="trailing" secondItem="Kok-28-enx" secondAttribute="trailing" constant="18" id="U0W-1k-5nv"/>
-                    <constraint firstAttribute="bottom" secondItem="Kok-28-enx" secondAttribute="bottom" constant="40" id="llP-No-R8b"/>
+                    <constraint firstAttribute="bottom" secondItem="Kok-28-enx" secondAttribute="bottom" constant="60" id="llP-No-R8b"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

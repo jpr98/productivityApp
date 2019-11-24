@@ -15,21 +15,26 @@ class TaskDetailTableViewController: UITableViewController {
 	}
 	
 	override func viewDidLoad() {
+		
 		super.viewDidLoad()
+		
 		tableView.separatorStyle = .none
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.allowsSelection = false
 		tableView.alwaysBounceVertical = false
 		registerCells()
+		
 	}
 	
 	func registerCells() {
+		
 		self.tableView.register(Identifiers.dueDateCell.getNib(), forCellReuseIdentifier: Identifiers.dueDateCell.rawValue)
 		self.tableView.register(Identifiers.titleCell.getNib(), forCellReuseIdentifier: Identifiers.titleCell.rawValue)
 		self.tableView.register(Identifiers.notesCell.getNib(), forCellReuseIdentifier: Identifiers.notesCell.rawValue)
 		self.tableView.register(Identifiers.tagPickerCell.getNib(), forCellReuseIdentifier: Identifiers.tagPickerCell.rawValue)
 		self.tableView.register(Identifiers.priorityCell.getNib(), forCellReuseIdentifier: Identifiers.priorityCell.rawValue)
 		self.tableView.register(Identifiers.timeToCompleteCell.getNib(), forCellReuseIdentifier: Identifiers.timeToCompleteCell.rawValue)
+		
 	}
 	
 	func presentAlertForTag(completionHandler: @escaping (String?) -> Void) {
@@ -70,20 +75,20 @@ extension TaskDetailTableViewController {
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.titleCell.rawValue) as? TitleCell else {
 					return UITableViewCell()
 				}
-				cell.titleTextField.text = "JP"
+				cell.configure(delegate: self)
 				return cell
 			} else {
 				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.notesCell.rawValue) as? NotesCell else {
 					return UITableViewCell()
 				}
-				cell.notesTextView.text = "Rskajhsdflakjsdhflkajdhsflakjshdflakj,shdflakj,shflkj,shdflakj,hsdlfka,nsbdlfjhmanhsld.kjf,mhanslkdjf,halsdk,nfbalkjs,fmhnlaksj,fdalkjs.,fmhalsdkj,fhansldkjf,hanldkfj,andfj.,amnsdf.ja,mdsnfajd"
+				cell.configure(delegate: self)
 				return cell
 			}
 		} else if indexPath.section == 2 {
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tagPickerCell.rawValue) as? TagPickerCell else {
 				return UITableViewCell()
 			}
-			cell.configure(vc: self)
+			cell.configure(delegate: self, vc: self)
 			return cell
 		} else if indexPath.section == 3 {
 			if indexPath.row == 0 {
@@ -113,6 +118,49 @@ extension TaskDetailTableViewController: DueDateCellDelegate {
 		// TODO: Set dueDate to task
 		print("\(date.getDayMonth()) selected as due date")
 		
+	}
+	
+}
+
+// MARK: - TitleCellDelegate
+extension TaskDetailTableViewController: TitleCellDelegate {
+	
+	func titleSelected(title: String) {
+		
+		// TODO: Add title to task
+		print("New title: \(title)")
+	}
+}
+
+// MARK: - NotesCellDelegate
+extension TaskDetailTableViewController: NotesCellDelegate {
+	
+	func notesAdded(notes: String) {
+		// TODO: add notes to task
+		print("Got these notes: \(notes)")
+	}
+	
+}
+
+// MARK: - TagPickerCellDelegate
+extension TaskDetailTableViewController: TagPickerCellDelegate {
+	
+	func createTag(with title: String, completionHandler: (_ success: Bool, _ newTags: [Tag]) -> Void) {
+		// TODO: Add task to DB
+		print("Tag created with tile \(title)")
+		
+		var tags = [Tag]()
+		tags.append(Tag(id: 0, title: "School"))
+		tags.append(Tag(id: 1, title: "Work"))
+		tags.append(Tag(id: 2, title: "Home"))
+		tags.append(Tag(id: 3, title: title))
+		
+		completionHandler(true, tags)
+	}
+	
+	func tagSelected(tag: Tag) {
+		// TODO: Add tag to task
+		print("Tag for task \(tag.title)")
 	}
 	
 }

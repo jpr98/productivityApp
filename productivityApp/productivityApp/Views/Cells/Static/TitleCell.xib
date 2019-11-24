@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="30" id="M7f-SS-epV"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                         <connections>
                             <action selector="titleTextFieldEditingDidEnd:" destination="dEU-cs-Rly" eventType="editingDidEnd" id="0kI-VU-9fK"/>
                         </connections>

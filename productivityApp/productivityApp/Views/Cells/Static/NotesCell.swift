@@ -8,12 +8,56 @@
 
 import UIKit
 
+protocol NotesCellDelegate: class {
+	func notesAdded(notes: String)
+}
+
 class NotesCell: UITableViewCell {
 	
 	@IBOutlet weak var notesTextView: UITextView!
+	
+	weak var delegate: NotesCellDelegate?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 	}
 	
+	func configure(delegate: NotesCellDelegate) {
+		
+		self.delegate = delegate
+		
+		notesTextView.delegate = self
+		notesTextView.text = ""
+		prepareForNotEditing()
+		
+	}
+	
+	fileprivate func prepareForEditing() {
+		notesTextView.text = ""
+		notesTextView.textColor = .black
+	}
+	
+	fileprivate func prepareForNotEditing() {
+		
+		if notesTextView.text == "" {
+			notesTextView.text = "Notes..."
+			notesTextView.textColor = .lightGray
+		}
+		
+	}
 }
+
+// MARK: - UITextView
+extension NotesCell: UITextViewDelegate {
+	
+	func textViewDidBeginEditing(_ textView: UITextView) {
+		prepareForEditing()
+	}
+	
+	func textViewDidEndEditing(_ textView: UITextView) {
+		prepareForNotEditing()
+		delegate?.notesAdded(notes: textView.text)
+	}
+	
+}
+

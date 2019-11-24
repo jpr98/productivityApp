@@ -36,13 +36,13 @@ class DueDateCell: UITableViewCell {
 		datePicker.datePickerMode = .dateAndTime
 		
 		dateTextField.text = ""
-		dateTextField.placeholder = "Due date"
+		dateTextField.placeholder = Date().getDayMonth()
 		dateTextField.tintColor = .clear
 		dateTextField.inputView = datePicker
 		dateTextField.inputAccessoryView = toolBar
 		
 		timeTextField.text = ""
-		timeTextField.placeholder = "Due time"
+		timeTextField.placeholder = Date().getTime()
 		timeTextField.tintColor = .clear
 		timeTextField.inputView = datePicker
 		timeTextField.inputAccessoryView = toolBar
