@@ -179,17 +179,19 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		//showTaskDetailTableViewController(delegate: self, task: tasks[indexPath.section][indexPath.row])
-		showPomodoroViewController()
+		showTaskDetailTableViewController(delegate: self, task: tasks[indexPath.section][indexPath.row])
 		
 	}
 	
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		
 		let action = UIContextualAction(style: .normal, title: "Complete") { (_, _, _) in
-			self.tasks[indexPath.section][indexPath.row].completed = true // TODO: Mark as completed in coreData
+			
+			self.tasks[indexPath.section][indexPath.row].completed = true
+			RealmHandler.shared.save(self.tasks[indexPath.section][indexPath.row])
 			self.tasks.remove(at: indexPath.row)
 			tableView.reload(sections: self.tasks.count)
+			
 		}
 		
 		action.backgroundColor = .green // TODO: Change color and maybe add icon
@@ -202,9 +204,11 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+			
 			self.tasks[indexPath.section].remove(at: indexPath.row)
 			RealmHandler.shared.delete(self.tasks[indexPath.section][indexPath.row])
 			tableView.reload(sections: self.tasks.count)
+			
 		}
 		
 		let configuration = UISwipeActionsConfiguration(actions: [action])

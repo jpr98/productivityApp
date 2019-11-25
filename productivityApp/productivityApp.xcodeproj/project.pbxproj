@@ -33,6 +33,8 @@
 		0B6311FA238C3E5200909797 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6311F9238C3E5200909797 /* RealmHandler.swift */; };
 		0B6311FC238C754900909797 /* Pomodoro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B6311FB238C754900909797 /* Pomodoro.storyboard */; };
 		0B6311FE238C75AD00909797 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6311FD238C75AD00909797 /* PomodoroViewController.swift */; };
+		0B6811B2238C885E009DD155 /* StartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6811B1238C885E009DD155 /* StartCell.swift */; };
+		0B6811B4238C8884009DD155 /* StartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811B3238C8884009DD155 /* StartCell.xib */; };
 		0BBF6E96238A1BAF002AF3FF /* UITextField+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */; };
 		0BBF6E98238A1C2B002AF3FF /* UITextView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */; };
 		0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A85023886550003B2CB0 /* DueDateCell.swift */; };
@@ -80,6 +82,8 @@
 		0B6311F9238C3E5200909797 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		0B6311FB238C754900909797 /* Pomodoro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pomodoro.storyboard; sourceTree = "<group>"; };
 		0B6311FD238C75AD00909797 /* PomodoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
+		0B6811B1238C885E009DD155 /* StartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCell.swift; sourceTree = "<group>"; };
+		0B6811B3238C8884009DD155 /* StartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartCell.xib; sourceTree = "<group>"; };
 		0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+utils.swift"; sourceTree = "<group>"; };
 		0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+utils.swift"; sourceTree = "<group>"; };
 		0BF5A85023886550003B2CB0 /* DueDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateCell.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				0BF5A8642388810C003B2CB0 /* PriorityCell.xib */,
 				0BF5A866238881FC003B2CB0 /* TimeToCompleteCell.swift */,
 				0BF5A8682388822C003B2CB0 /* TimeToCompleteCell.xib */,
+				0B6811B1238C885E009DD155 /* StartCell.swift */,
+				0B6811B3238C8884009DD155 /* StartCell.xib */,
 			);
 			path = Static;
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */,
 				0BF5A85B23886719003B2CB0 /* NotesCell.xib in Resources */,
 				0B51DD7A2389F3B800547D60 /* AddTagCollectionViewCell.xib in Resources */,
+				0B6811B4238C8884009DD155 /* StartCell.xib in Resources */,
 				0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */,
 				0B1323D32384936500F76E88 /* Assets.xcassets in Resources */,
 				0B6311FC238C754900909797 /* Pomodoro.storyboard in Resources */,
@@ -386,6 +393,7 @@
 				0B60E3372387B3B000099F89 /* TagCollectionViewCell.swift in Sources */,
 				0B1323EA2384992500F76E88 /* TaskTableViewCell.swift in Sources */,
 				0B1323ED2384AB5D00F76E88 /* UIColor+utils.swift in Sources */,
+				0B6811B2238C885E009DD155 /* StartCell.swift in Sources */,
 				0BF5A86123886896003B2CB0 /* TaskDetailTableViewController.swift in Sources */,
 				0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */,
 				0BF5A867238881FC003B2CB0 /* TimeToCompleteCell.swift in Sources */,

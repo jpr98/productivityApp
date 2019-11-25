@@ -29,21 +29,82 @@
                                     <action selector="buttonTapped:" destination="PCq-K9-L7J" eventType="touchUpInside" id="8be-oL-eGa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are working on task name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gy-gg-jca">
+                                <rect key="frame" x="20" y="74" width="374" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This task has 2 hrs 10 min left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-6t-APL">
+                                <rect key="frame" x="20" y="107.5" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzu-4W-7b8">
+                                <rect key="frame" x="20" y="148.5" width="374" height="72"/>
+                                <string key="text">The Pomodoro Technique is a time management method that uses a timer to break down work into intervals, 25 minutes in length, separated 5 minute breaks.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7T-0m-lqq">
+                                <rect key="frame" x="47" y="792" width="120" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="6uh-rQ-v4T"/>
+                                    <constraint firstAttribute="height" constant="35" id="RaS-wc-Gtv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Save Progress"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="PCq-K9-L7J" eventType="touchUpInside" id="0wY-vB-TV8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msg-RI-mzK">
+                                <rect key="frame" x="247" y="792" width="120" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="CFj-ZG-aBn"/>
+                                    <constraint firstAttribute="height" constant="35" id="PNs-PN-y99"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Done with task"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="PCq-K9-L7J" eventType="touchUpInside" id="c73-mr-02b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="2gy-gg-jca" firstAttribute="top" secondItem="I63-Bv-b04" secondAttribute="top" constant="30" id="03C-JS-Vua"/>
                             <constraint firstItem="Gs5-zh-AZk" firstAttribute="height" secondItem="yYJ-5l-msa" secondAttribute="height" id="33L-eB-wn7"/>
                             <constraint firstItem="Gs5-zh-AZk" firstAttribute="centerX" secondItem="yYJ-5l-msa" secondAttribute="centerX" id="5TN-QJ-Sym"/>
+                            <constraint firstItem="PqG-6t-APL" firstAttribute="width" secondItem="2gy-gg-jca" secondAttribute="width" id="7qy-WL-4N4"/>
+                            <constraint firstItem="2gy-gg-jca" firstAttribute="leading" secondItem="I63-Bv-b04" secondAttribute="leading" constant="20" id="9IA-lf-xgV"/>
+                            <constraint firstItem="I63-Bv-b04" firstAttribute="bottom" secondItem="Msg-RI-mzK" secondAttribute="bottom" constant="35" id="NJe-U8-HIz"/>
+                            <constraint firstItem="gzu-4W-7b8" firstAttribute="width" secondItem="PqG-6t-APL" secondAttribute="width" id="Y1j-PS-uCD"/>
+                            <constraint firstItem="PqG-6t-APL" firstAttribute="top" secondItem="2gy-gg-jca" secondAttribute="bottom" constant="8" id="aaN-Py-55X"/>
+                            <constraint firstItem="gzu-4W-7b8" firstAttribute="top" secondItem="PqG-6t-APL" secondAttribute="bottom" constant="20" id="it4-JH-qaY"/>
+                            <constraint firstItem="gzu-4W-7b8" firstAttribute="centerX" secondItem="PqG-6t-APL" secondAttribute="centerX" id="kSW-Y9-Xed"/>
+                            <constraint firstItem="I63-Bv-b04" firstAttribute="bottom" secondItem="F7T-0m-lqq" secondAttribute="bottom" constant="35" id="lnM-d4-y3c"/>
                             <constraint firstItem="yYJ-5l-msa" firstAttribute="centerY" secondItem="I63-Bv-b04" secondAttribute="centerY" id="oJc-fa-mRg"/>
                             <constraint firstItem="Gs5-zh-AZk" firstAttribute="width" secondItem="yYJ-5l-msa" secondAttribute="width" id="pOd-mw-jy9"/>
+                            <constraint firstItem="PqG-6t-APL" firstAttribute="centerX" secondItem="2gy-gg-jca" secondAttribute="centerX" id="pRp-AP-dQu"/>
                             <constraint firstItem="yYJ-5l-msa" firstAttribute="centerX" secondItem="I63-Bv-b04" secondAttribute="centerX" id="qyS-SP-5cT"/>
                             <constraint firstItem="Gs5-zh-AZk" firstAttribute="centerY" secondItem="yYJ-5l-msa" secondAttribute="centerY" id="rAC-8J-ldN"/>
+                            <constraint firstItem="I63-Bv-b04" firstAttribute="trailing" secondItem="2gy-gg-jca" secondAttribute="trailing" constant="20" id="uBI-i1-qM1"/>
+                            <constraint firstItem="F7T-0m-lqq" firstAttribute="centerX" secondItem="I63-Bv-b04" secondAttribute="centerX" constant="-100" id="v4t-If-9tg"/>
+                            <constraint firstItem="Msg-RI-mzK" firstAttribute="centerX" secondItem="I63-Bv-b04" secondAttribute="centerX" constant="100" id="ze5-aC-xFj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I63-Bv-b04"/>
                     </view>
                     <connections>
                         <outlet property="button" destination="Gs5-zh-AZk" id="qqU-aa-QfC"/>
+                        <outlet property="detailLabel" destination="PqG-6t-APL" id="I0e-ch-t9x"/>
+                        <outlet property="doneButton" destination="Msg-RI-mzK" id="osE-VU-gaS"/>
+                        <outlet property="infoLabel" destination="gzu-4W-7b8" id="4Uz-uH-qmL"/>
+                        <outlet property="saveButton" destination="F7T-0m-lqq" id="H3T-ho-3Rp"/>
                         <outlet property="timerView" destination="yYJ-5l-msa" id="rFl-C9-l1x"/>
+                        <outlet property="titleLabel" destination="2gy-gg-jca" id="dHt-W2-0vx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bb3-Lx-q14" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

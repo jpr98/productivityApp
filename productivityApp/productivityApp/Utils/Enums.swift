@@ -21,6 +21,7 @@ enum Identifiers: String {
 	case tagPickerCell = "TagPickerCell"
 	case priorityCell = "PriorityCell"
 	case timeToCompleteCell = "TimeToCompleteCell"
+	case startCell = "StartCell"
 	
 	func getNib() -> UINib {
 		
@@ -45,6 +46,8 @@ enum Identifiers: String {
 			return UINib(nibName: "PriorityCell", bundle: nil)
 		case .timeToCompleteCell:
 			return UINib(nibName: "TimeToCompleteCell", bundle: nil)
+		case .startCell:
+			return UINib(nibName: "StartCell", bundle: nil)
 		}
 		
 	}

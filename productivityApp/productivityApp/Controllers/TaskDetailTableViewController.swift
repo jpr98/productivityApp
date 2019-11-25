@@ -57,6 +57,7 @@ class TaskDetailTableViewController: UITableViewController {
 		self.tableView.register(Identifiers.tagPickerCell.getNib(), forCellReuseIdentifier: Identifiers.tagPickerCell.rawValue)
 		self.tableView.register(Identifiers.priorityCell.getNib(), forCellReuseIdentifier: Identifiers.priorityCell.rawValue)
 		self.tableView.register(Identifiers.timeToCompleteCell.getNib(), forCellReuseIdentifier: Identifiers.timeToCompleteCell.rawValue)
+		self.tableView.register(Identifiers.startCell.getNib(), forCellReuseIdentifier: Identifiers.startCell.rawValue)
 		
 	}
 	
@@ -159,7 +160,18 @@ extension TaskDetailTableViewController {
 				return cell
 				
 			}
+		} else if indexPath.section == 4 {
+			
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.startCell.rawValue, for: indexPath) as? StartCell else {
+				return UITableViewCell()
+			}
+			
+			cell.configure(delegate: self, shouldHide: newTask)
+			
+			return cell
+			
 		}
+		
 		return UITableViewCell()
 	}
 	
@@ -224,6 +236,15 @@ extension TaskDetailTableViewController: TimeToCompleteCellDelegate {
 	
 	func timeToCompleteSelected(_ time: TimeInterval) {
 		task.timeToComplete = time
+	}
+	
+}
+
+// MARK: - StartCellDelegate
+extension TaskDetailTableViewController: StartCellDelegate {
+	
+	func startPressed() {
+		showPomodoroViewController(task: task)
 	}
 	
 }

@@ -42,6 +42,7 @@ class TimeToCompleteCell: UITableViewCell {
 			timeToCompleteTextField.text = time.getHoursMinutes()
 		}
 		
+		timeToCompleteTextField.placeholder = "0 hr 0 min"
 		timeToCompleteTextField.tintColor = .clear
 		timeToCompleteTextField.inputView = timePicker
 		timeToCompleteTextField.inputAccessoryView = toolBar
