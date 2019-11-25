@@ -164,6 +164,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			cell.task = tasks[indexPath.section][indexPath.row]
 			cell.setup()
+			cell.setNeedsDisplay()
 			
 			return cell
 			
@@ -178,7 +179,8 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		showTaskDetailTableViewController(delegate: self, task: tasks[indexPath.section][indexPath.row])
+		//showTaskDetailTableViewController(delegate: self, task: tasks[indexPath.section][indexPath.row])
+		showPomodoroViewController()
 		
 	}
 	

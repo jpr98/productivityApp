@@ -4,19 +4,23 @@ PODS:
   - Realm/Headers (4.1.1)
   - RealmSwift (4.1.1):
     - Realm (= 4.1.1)
+  - SRCountdownTimer (1.1)
 
 DEPENDENCIES:
   - RealmSwift
+  - SRCountdownTimer
 
 SPEC REPOS:
   trunk:
     - Realm
     - RealmSwift
+    - SRCountdownTimer
 
 SPEC CHECKSUMS:
   Realm: 25f0a8244cbb1c2271c922963ea8666fc2d8104d
   RealmSwift: 9e2657b33764f80e4a4dffd6d440e24715782052
+  SRCountdownTimer: 9c92e444b5403c92f01dd6610299b8c634bc8562
 
-PODFILE CHECKSUM: 3e5c6c505a8a6423dbe79c725026ba95ecd16de1
+PODFILE CHECKSUM: 5af4cd5c768fec93b604eee9457b052b83742193
 
 COCOAPODS: 1.8.3

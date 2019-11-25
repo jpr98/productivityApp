@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pomodoro View Controller-->
+        <scene sceneID="bYV-rR-oga">
+            <objects>
+                <viewController storyboardIdentifier="PomodoroViewController" id="PCq-K9-L7J" customClass="PomodoroViewController" customModule="productivityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="igL-yG-vPV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYJ-5l-msa" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
+                                <rect key="frame" x="57" y="303" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="k5p-ke-AWi"/>
+                                    <constraint firstAttribute="height" constant="300" id="xgK-Hh-Fjt"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gs5-zh-AZk">
+                                <rect key="frame" x="57" y="303" width="300" height="300"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="PCq-K9-L7J" eventType="touchUpInside" id="8be-oL-eGa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Gs5-zh-AZk" firstAttribute="height" secondItem="yYJ-5l-msa" secondAttribute="height" id="33L-eB-wn7"/>
+                            <constraint firstItem="Gs5-zh-AZk" firstAttribute="centerX" secondItem="yYJ-5l-msa" secondAttribute="centerX" id="5TN-QJ-Sym"/>
+                            <constraint firstItem="yYJ-5l-msa" firstAttribute="centerY" secondItem="I63-Bv-b04" secondAttribute="centerY" id="oJc-fa-mRg"/>
+                            <constraint firstItem="Gs5-zh-AZk" firstAttribute="width" secondItem="yYJ-5l-msa" secondAttribute="width" id="pOd-mw-jy9"/>
+                            <constraint firstItem="yYJ-5l-msa" firstAttribute="centerX" secondItem="I63-Bv-b04" secondAttribute="centerX" id="qyS-SP-5cT"/>
+                            <constraint firstItem="Gs5-zh-AZk" firstAttribute="centerY" secondItem="yYJ-5l-msa" secondAttribute="centerY" id="rAC-8J-ldN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I63-Bv-b04"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="Gs5-zh-AZk" id="qqU-aa-QfC"/>
+                        <outlet property="timerView" destination="yYJ-5l-msa" id="rFl-C9-l1x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bb3-Lx-q14" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-187" y="95"/>
+        </scene>
+    </scenes>
+</document>

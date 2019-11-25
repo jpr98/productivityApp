@@ -8,5 +8,5 @@ target 'productivityApp' do
   # Pods for productivityApp
   
   pod 'RealmSwift'
-
+  pod 'SRCountdownTimer'
 end

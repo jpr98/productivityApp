@@ -30,6 +30,7 @@ class SmartTaskTableViewCell: UITableViewCell {
 		taskView.layer.borderWidth = 0.5
 		
 		setProgressView()
+		self.progressView.setNeedsDisplay()
 	}
 	
 	func setup() {
