@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYJ-5l-msa" customClass="SRCountdownTimer" customModule="SRCountdownTimer">
-                                <rect key="frame" x="57" y="303" width="300" height="300"/>
+                                <rect key="frame" x="57" y="313" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="k5p-ke-AWi"/>
@@ -24,27 +24,27 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gs5-zh-AZk">
-                                <rect key="frame" x="57" y="303" width="300" height="300"/>
+                                <rect key="frame" x="57" y="313" width="300" height="300"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="PCq-K9-L7J" eventType="touchUpInside" id="8be-oL-eGa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are working on task name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gy-gg-jca">
-                                <rect key="frame" x="20" y="74" width="374" height="25.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <rect key="frame" x="20" y="74" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This task has 2 hrs 10 min left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-6t-APL">
-                                <rect key="frame" x="20" y="107.5" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This task has 2 hrs 10 min left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-6t-APL">
+                                <rect key="frame" x="20" y="105" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzu-4W-7b8">
-                                <rect key="frame" x="20" y="148.5" width="374" height="72"/>
+                                <rect key="frame" x="20" y="148.5" width="374" height="47"/>
                                 <string key="text">The Pomodoro Technique is a time management method that uses a timer to break down work into intervals, 25 minutes in length, separated 5 minute breaks.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,10 +83,10 @@
                             <constraint firstItem="I63-Bv-b04" firstAttribute="bottom" secondItem="Msg-RI-mzK" secondAttribute="bottom" constant="35" id="NJe-U8-HIz"/>
                             <constraint firstItem="gzu-4W-7b8" firstAttribute="width" secondItem="PqG-6t-APL" secondAttribute="width" id="Y1j-PS-uCD"/>
                             <constraint firstItem="PqG-6t-APL" firstAttribute="top" secondItem="2gy-gg-jca" secondAttribute="bottom" constant="8" id="aaN-Py-55X"/>
-                            <constraint firstItem="gzu-4W-7b8" firstAttribute="top" secondItem="PqG-6t-APL" secondAttribute="bottom" constant="20" id="it4-JH-qaY"/>
+                            <constraint firstItem="gzu-4W-7b8" firstAttribute="top" secondItem="PqG-6t-APL" secondAttribute="bottom" constant="24" id="it4-JH-qaY"/>
                             <constraint firstItem="gzu-4W-7b8" firstAttribute="centerX" secondItem="PqG-6t-APL" secondAttribute="centerX" id="kSW-Y9-Xed"/>
                             <constraint firstItem="I63-Bv-b04" firstAttribute="bottom" secondItem="F7T-0m-lqq" secondAttribute="bottom" constant="35" id="lnM-d4-y3c"/>
-                            <constraint firstItem="yYJ-5l-msa" firstAttribute="centerY" secondItem="I63-Bv-b04" secondAttribute="centerY" id="oJc-fa-mRg"/>
+                            <constraint firstItem="yYJ-5l-msa" firstAttribute="centerY" secondItem="I63-Bv-b04" secondAttribute="centerY" constant="10" id="oJc-fa-mRg"/>
                             <constraint firstItem="Gs5-zh-AZk" firstAttribute="width" secondItem="yYJ-5l-msa" secondAttribute="width" id="pOd-mw-jy9"/>
                             <constraint firstItem="PqG-6t-APL" firstAttribute="centerX" secondItem="2gy-gg-jca" secondAttribute="centerX" id="pRp-AP-dQu"/>
                             <constraint firstItem="yYJ-5l-msa" firstAttribute="centerX" secondItem="I63-Bv-b04" secondAttribute="centerX" id="qyS-SP-5cT"/>

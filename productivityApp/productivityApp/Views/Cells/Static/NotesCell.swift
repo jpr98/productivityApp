@@ -61,7 +61,9 @@ extension NotesCell: UITextViewDelegate {
 	
 	func textViewDidEndEditing(_ textView: UITextView) {
 		prepareForNotEditing()
-		delegate?.notesAdded(notes: textView.text)
+		if textView.text != "Notes..." {
+			delegate?.notesAdded(notes: textView.text)
+		}
 	}
 	
 }

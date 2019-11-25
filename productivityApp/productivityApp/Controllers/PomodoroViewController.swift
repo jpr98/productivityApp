@@ -36,6 +36,8 @@ class PomodoroViewController: UIViewController {
 		super.viewDidLoad()
 		
 		configureWorkTimer()
+		configureLabels()
+		configureButtons()
 		
 	}
 	
@@ -72,6 +74,33 @@ class PomodoroViewController: UIViewController {
 		
 	}
 	
+	func configureLabels() {
+		
+		titleLabel.text = "Working on \(task.title)"
+		
+		let cycles = Int(task.timeToComplete / 1500)
+		if cycles <= 0 {
+			detailLabel.text = "You have to do less than 1 cycle to complete this task"
+		} else if cycles == 1 {
+			detailLabel.text = "You have to do about 1 cycle to complete this task"
+		} else {
+			detailLabel.text = "You still have to do about \(cycles) cycles to complete this task"
+		}
+		
+	}
+	
+	func configureButtons() {
+		
+		saveButton.layer.cornerRadius = 10
+		saveButton.layer.backgroundColor = UIColor.red.cgColor
+		saveButton.setTitleColor(.white, for: .normal)
+		
+		doneButton.layer.cornerRadius = 10
+		doneButton.layer.backgroundColor = UIColor.blue.cgColor
+		doneButton.setTitleColor(.white, for: .normal)
+		
+	}
+	
 	// MARK: - IBActions
 	@IBAction func buttonTapped(_ sender: Any) {
 		
@@ -96,6 +125,7 @@ class PomodoroViewController: UIViewController {
 	}
 	
 	@IBAction func saveButtonTapped(_ sender: Any) {
+		task.timeToComplete -= TimeInterval(time - counterValue)
 		RealmHandler.shared.save(task)
 		self.dismiss(animated: true, completion: nil)
 	}
@@ -143,6 +173,8 @@ extension PomodoroViewController: SRCountdownTimerDelegate {
 		workTime.toggle()
 		
 		task.timeToComplete -= TimeInterval(time)
+		
+		configureLabels()
 		
 	}
 	
