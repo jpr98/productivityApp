@@ -11,13 +11,14 @@ import RealmSwift
 
 class Task: Object {
 	
+	@objc dynamic var id: Int
 	@objc dynamic var title: String
 	@objc dynamic var notes: String
-	@objc dynamic private var priorityNumber: Int
+	@objc dynamic var priorityNumber: Int
 	@objc dynamic var dueDate: Date
 	@objc dynamic var timeToComplete: TimeInterval
 	@objc dynamic var completed: Bool
-	@objc dynamic private var tagNumber: Int
+	private var tagNumber: Int
 	
 	
 	var priority: Priority {
@@ -26,14 +27,11 @@ class Task: Object {
 		}
 	}
 	
-	var tag: Tag {
-		didSet {
-			tagNumber = tag.id
-		}
-	}
+	@objc dynamic var tag: Tag!
 	
 	required init() {
 		
+		id = -1
 		title = ""
 		notes = ""
 		priorityNumber = 0
@@ -46,8 +44,9 @@ class Task: Object {
 		
 	}
 	
-	init(title: String, notes: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool, tag: Tag) {
+	init(id: Int, title: String, notes: String, priority: Priority, dueDate: Date, timeToComplete: TimeInterval, completed: Bool, tag: Tag) {
 		
+		self.id = id
 		self.title = title
 		self.notes = notes
 		self.priorityNumber = priority.rawValue
@@ -60,58 +59,27 @@ class Task: Object {
 		
 	}
 	
+	init(with t: Task) {
+		
+		self.id = t.id
+		self.title = t.title
+		self.notes = t.notes
+		self.priorityNumber = t.priorityNumber
+		self.dueDate = t.dueDate
+		self.timeToComplete = t.timeToComplete
+		self.completed = t.completed
+		self.tagNumber = t.tag.id
+		self.priority = Priority.create(for: t.priorityNumber)
+		self.tag = t.tag
+		
+	}
+	
 	// MARK: - Realm
 	override static func ignoredProperties() -> [String] {
-        return ["priority","tag"]
+        return ["priority"]
     }
 	
 	// MARK: - Methods
-	static func mock() -> [Task] {
-		var mockData = [Task]()
-		
-		mockData.append(Task(title: "Walk the dog",
-							 notes: "",
-							 priority: .low,
-							 dueDate: Date(timeIntervalSince1970: 1574186400),
-							 timeToComplete: 100,
-							 completed: false,
-							 tag: Tag()))
-		
-		mockData.append(Task(title: "Finish work presentation",
-							 notes: "I need to finish the marketing presentation",
-							 priority: .high,
-							 dueDate: Date(timeIntervalSince1970: 1574200800),
-							 timeToComplete: 100,
-							 completed: false,
-							 tag: Tag()))
-		
-		mockData.append(Task(title: "Call mom",
-							 notes: "Talk about christmas vacation",
-							 priority: .low,
-							 dueDate: Date(timeIntervalSince1970: 1574193600),
-							 timeToComplete: 100,
-							 completed: false,
-							 tag: Tag()))
-		
-		mockData.append(Task(title: "Buy groceries",
-							 notes: "Check grocery list",
-							 priority: .high,
-							 dueDate: Date(timeIntervalSince1970: 1574262000),
-							 timeToComplete: 100,
-							 completed: false,
-							 tag: Tag()))
-		
-		mockData.append(Task(title: "Make dinner",
-							 notes: "Spaghetti for two",
-							 priority: .medium,
-							 dueDate: Date(timeIntervalSince1970: 1574280000),
-							 timeToComplete: 100,
-							 completed: false,
-							 tag: Tag()))
-		
-		return mockData
-	}
-	
 	func calculateRemainingTime() -> TimeInterval {
 		return 0
 	}

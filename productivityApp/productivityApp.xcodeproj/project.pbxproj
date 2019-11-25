@@ -30,6 +30,7 @@
 		0B60E3332387B19100099F89 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3322387B19100099F89 /* Tag.swift */; };
 		0B60E3352387B30400099F89 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */; };
 		0B60E3372387B3B000099F89 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B60E3362387B3B000099F89 /* TagCollectionViewCell.swift */; };
+		0B6311FA238C3E5200909797 /* RealmHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6311F9238C3E5200909797 /* RealmHandler.swift */; };
 		0BBF6E96238A1BAF002AF3FF /* UITextField+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */; };
 		0BBF6E98238A1C2B002AF3FF /* UITextView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */; };
 		0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A85023886550003B2CB0 /* DueDateCell.swift */; };
@@ -74,6 +75,7 @@
 		0B60E3322387B19100099F89 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		0B60E3342387B30400099F89 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		0B60E3362387B3B000099F89 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B6311F9238C3E5200909797 /* RealmHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHandler.swift; sourceTree = "<group>"; };
 		0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+utils.swift"; sourceTree = "<group>"; };
 		0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+utils.swift"; sourceTree = "<group>"; };
 		0BF5A85023886550003B2CB0 /* DueDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		0B1323C82384936100F76E88 /* productivityApp */ = {
 			isa = PBXGroup;
 			children = (
+				0B6311F8238C3E3400909797 /* Helpers */,
 				0B1323DD2384939000F76E88 /* Models */,
 				0B1323DF2384939E00F76E88 /* Views */,
 				0B1323E0238493A400F76E88 /* Controllers */,
@@ -197,6 +200,14 @@
 				0B51DD792389F3B800547D60 /* AddTagCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0B6311F8238C3E3400909797 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0B6311F9238C3E5200909797 /* RealmHandler.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0BF5A84F2388653C003B2CB0 /* Static */ = {
@@ -372,6 +383,7 @@
 				0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */,
 				0BF5A867238881FC003B2CB0 /* TimeToCompleteCell.swift in Sources */,
 				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
+				0B6311FA238C3E5200909797 /* RealmHandler.swift in Sources */,
 				0BBF6E98238A1C2B002AF3FF /* UITextView+utils.swift in Sources */,
 				0BBF6E96238A1BAF002AF3FF /* UITextField+utils.swift in Sources */,
 				0B51DD762389DC0B00547D60 /* Double+utils.swift in Sources */,

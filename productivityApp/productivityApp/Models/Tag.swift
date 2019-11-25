@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Tag {
+class Tag: Object {
 	
-	var id: Int
-	var title: String
+	@objc dynamic var id: Int
+	@objc dynamic var title: String
 	
-	init() {
+	required init() {
 		id = -1
 		title = ""
 	}

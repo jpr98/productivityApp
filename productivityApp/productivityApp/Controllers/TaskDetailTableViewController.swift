@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol TaskDetailTableViewControllerDelegate: class {
+	func willDissapear()
+}
+
 class TaskDetailTableViewController: UITableViewController {
 	
 	static func makeTaskDetailTableViewController() -> TaskDetailTableViewController {
 		return UIStoryboard(name: "TaskDetail", bundle: nil).instantiateViewController(withIdentifier: String(describing: TaskDetailTableViewController.self)) as! TaskDetailTableViewController
 	}
+	
+	weak var delegate: TaskDetailTableViewControllerDelegate?
 	
 	var task = Task()
 	var newTask = true
@@ -33,7 +39,13 @@ class TaskDetailTableViewController: UITableViewController {
 		
 	}
 	
-	@objc func handleDraggedDown() {
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		if task.title != "" {
+			RealmHandler.shared.save(task)
+			delegate?.willDissapear()
+		}
 		
 	}
 
@@ -118,7 +130,8 @@ extension TaskDetailTableViewController {
 				return UITableViewCell()
 			}
 			
-			cell.configure(delegate: self, vc: self, tags: [Tag](), selectedTag: task.tag)
+			let tags = RealmHandler.shared.getTags()
+			cell.configure(delegate: self, vc: self, tags: tags, selectedTag: task.tag)
 			
 			return cell
 			
@@ -183,16 +196,12 @@ extension TaskDetailTableViewController: NotesCellDelegate {
 extension TaskDetailTableViewController: TagPickerCellDelegate {
 	
 	func createTag(with title: String, completionHandler: (_ success: Bool, _ newTags: [Tag]) -> Void) {
-		// TODO: Add task to DB
-		print("Tag created with tile \(title)")
 		
-		var tags = [Tag]()
-		tags.append(Tag(id: 0, title: "School"))
-		tags.append(Tag(id: 1, title: "Work"))
-		tags.append(Tag(id: 2, title: "Home"))
-		tags.append(Tag(id: 3, title: title))
+		let status = RealmHandler.shared.save(title)
+		let tags = RealmHandler.shared.getTags()
 		
-		completionHandler(true, tags)
+		completionHandler(status, tags)
+		
 	}
 	
 	func tagSelected(tag: Tag) {
@@ -221,9 +230,11 @@ extension TaskDetailTableViewController: TimeToCompleteCellDelegate {
 
 // MARK: - ShowVC Extension
 extension UIViewController {
-	func showTaskDetailTableViewController(task: Task?) {
+	func showTaskDetailTableViewController(delegate: TaskDetailTableViewControllerDelegate, task: Task?) {
 		
 		let vc = TaskDetailTableViewController.makeTaskDetailTableViewController()
+		
+		vc.delegate = delegate
 		
 		if let task = task {
 			vc.task = task

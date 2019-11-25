@@ -81,6 +81,7 @@ class DueDateCell: UITableViewCell {
 	@IBAction func dateTextFieldValueChanged(_ sender: Any) {
 		dateTextField.text = datePicker.date.getDayMonth()
 		timeTextField.text = datePicker.date.getTime()
+		delegate?.dueDateSelected(datePicker.date)
 		self.endEditing(true)
 	}
 	

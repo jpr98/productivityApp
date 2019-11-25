@@ -42,6 +42,7 @@ class TagPickerCell: UITableViewCell {
 		
 		self.delegate = delegate
 		self.vc = vc
+		self.tags = tags
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self
@@ -51,11 +52,6 @@ class TagPickerCell: UITableViewCell {
 		
 		collectionView.showsHorizontalScrollIndicator = false
 		collectionView.reloadData()
-		
-		self.tags = tags
-		self.tags.append(Tag(id: 0, title: "School"))
-		self.tags.append(Tag(id: 0, title: "Work"))
-		self.tags.append(Tag(id: 0, title: "Home"))
 		
 		if selectedTag.id != -1 {
 			self.selectedTag = selectedTag.id

@@ -71,6 +71,19 @@ enum Priority: Int {
 	case low = 0
 	case medium = 1
 	case high = 2
+	
+	static func create(for number: Int) -> Priority {
+		switch number {
+		case 0:
+			return .low
+		case 1:
+			return .medium
+		case 2:
+			return .high
+		default:
+			return .low
+		}
+	}
 }
 
 enum ViewType {

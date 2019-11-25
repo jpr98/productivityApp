@@ -41,10 +41,7 @@ class TasksViewController: UIViewController {
 		
 		super.viewDidLoad()
 		
-		unreadyTasks = Task.mock()
-		Task.order(array: unreadyTasks, by: order) { orderedTasks in
-			self.tasks = orderedTasks
-		}
+		updateData()
 		
 		tasksTableView.delegate = self
 		tasksTableView.dataSource = self
@@ -55,7 +52,13 @@ class TasksViewController: UIViewController {
 		
 	}
 	
-	func displayAddButtonView() {
+	func updateData() {
+		
+		unreadyTasks = RealmHandler.shared.getTasks()
+		Task.order(array: unreadyTasks, by: order) { orderedTasks in
+			self.tasks = orderedTasks
+			self.tasksTableView.reloadData()
+		}
 		
 	}
 	
@@ -117,7 +120,7 @@ class TasksViewController: UIViewController {
 	}
 	
 	@IBAction func addButtonTapped(_ sender: Any) {
-		showTaskDetailTableViewController(task: nil)
+		showTaskDetailTableViewController(delegate: self, task: nil)
 	}
 	
 }
@@ -175,7 +178,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		showTaskDetailTableViewController(task: tasks[indexPath.section][indexPath.row])
+		showTaskDetailTableViewController(delegate: self, task: tasks[indexPath.section][indexPath.row])
 		
 	}
 	
@@ -197,8 +200,8 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
-			// TODO: Delete from core Data
 			self.tasks[indexPath.section].remove(at: indexPath.row)
+			RealmHandler.shared.delete(self.tasks[indexPath.section][indexPath.row])
 			tableView.reload(sections: self.tasks.count)
 		}
 		
@@ -206,4 +209,13 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 		return configuration
 		
 	}
+}
+
+// MARK: - TaskDetailTableViewControllerDelegate
+extension TasksViewController: TaskDetailTableViewControllerDelegate {
+	
+	func willDissapear() {
+		self.updateData()
+	}
+	
 }
