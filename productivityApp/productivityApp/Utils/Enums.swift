@@ -103,3 +103,10 @@ enum Direction {
 	case toRight
 	case unknown
 }
+
+enum FontType {
+	case bold
+	case book
+	case light
+	case medium
+}

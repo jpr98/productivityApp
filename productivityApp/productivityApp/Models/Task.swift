@@ -181,7 +181,7 @@ extension Task {
 		var orderedTasks = tasks
 		
 		orderedTasks.sort { (first, second) -> Bool in
-			return first.calculateRemainingTime() > second.calculateRemainingTime()
+			return first.timeToComplete > second.timeToComplete
 		}
 		
 		print("BY SMART")

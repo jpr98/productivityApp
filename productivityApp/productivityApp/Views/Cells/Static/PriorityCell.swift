@@ -33,6 +33,8 @@ class PriorityCell: UITableViewCell {
 		self.delegate = delegate
 		self.prioritySelected = prioritySelected
 		
+		priorityLabel.font = UIFont.getFont(with: .medium, size: 19)
+		
 		configureButtonsCorners()
 		configureButtonsColor()
 		

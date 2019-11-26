@@ -35,6 +35,9 @@ class DueDateCell: UITableViewCell {
 		datePicker.tag = 0
 		datePicker.datePickerMode = .dateAndTime
 		
+		dateTextField.font = UIFont.getFont(with: .light, size: 20)
+		timeTextField.font = UIFont.getFont(with: .light, size: 20)
+		
 		if date.getTime() == Date().getTime() {
 			dateTextField.text = ""
 			timeTextField.text = ""

@@ -34,6 +34,7 @@ class AddTagCollectionViewCell: UICollectionViewCell {
 		
 		addTagView.clipsToBounds = true
 		addTagView.layer.cornerRadius = self.frame.height / 2
+		
 	}
 	
 	// MARK: - IBActions

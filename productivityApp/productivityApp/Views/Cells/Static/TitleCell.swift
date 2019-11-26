@@ -27,6 +27,7 @@ class TitleCell: UITableViewCell {
 		
 		self.delegate = delegate
 		
+		titleTextField.font = UIFont.getFont(with: .medium, size: 20)
 		titleTextField.text = title
 		titleTextField.placeholder = "Title"
 		titleTextField.keyboardDismissable()

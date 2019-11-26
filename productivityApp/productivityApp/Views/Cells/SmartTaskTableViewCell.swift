@@ -39,9 +39,11 @@ class SmartTaskTableViewCell: UITableViewCell {
 	
 	func setup() {
 		
+		titleLabel.font = UIFont.getFont(with: .light, size: 17)
 		titleLabel.text = task.title
 		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
 		timeLeftLabel.text = task.timeToComplete.getHoursMinutes()
+		timeLeftLabel.font = UIFont.getFont(with: .light, size: 15)
 		completedLineView.isHidden = !task.completed
 		
 	}

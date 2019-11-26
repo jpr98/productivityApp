@@ -35,7 +35,9 @@ class TaskTableViewCell: UITableViewCell {
 	
 	func setup() {
 		
+		titleLabel.font = UIFont.getFont(with: .light, size: 17)
 		titleLabel.text = task.title
+		dueTimeLabel.font = UIFont.getFont(with: .light, size: 15)
 		dueTimeLabel.text = task.dueDate.getTime()
 		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
 		completedLineView.isHidden = !task.completed

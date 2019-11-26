@@ -28,6 +28,7 @@ class NotesCell: UITableViewCell {
 		
 		notesTextView.delegate = self
 		notesTextView.text = notes
+		notesTextView.font = UIFont.getFont(with: .light, size: 16)
 		notesTextView.keyboardDismissable()
 		prepareForNotEditing()
 		

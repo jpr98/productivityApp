@@ -11,12 +11,15 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="250" id="Zix-Er-xPF" customClass="StartCell" customModule="productivityApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zix-Er-xPF" id="MEM-f2-Xtu">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zix-Er-xPF" id="MEM-f2-Xtu">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xiu-3h-KgC">
-                        <rect key="frame" x="80" y="131" width="254" height="98"/>
+                        <rect key="frame" x="80" y="131" width="254" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="yID-BB-sOL"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                         <connections>
                             <action selector="startButtonTapped:" destination="Zix-Er-xPF" eventType="touchUpInside" id="EGf-FU-9wK"/>

@@ -53,6 +53,7 @@ class PomodoroViewController: UIViewController {
 		timerView.trailLineColor = UIColor.lightGray.withAlphaComponent(0.5)
 		timerView.isLabelHidden = false
 		timerView.timerFinishingText = "Done. Tap to start break."
+		timerView.labelFont = UIFont.getFont(with: .medium, size: 20)
 		timerView.useMinutesAndSecondsRepresentation = true
 		timerView.delegate = self
 		
@@ -67,6 +68,7 @@ class PomodoroViewController: UIViewController {
 		timerView.trailLineColor = UIColor.lightGray.withAlphaComponent(0.5)
 		timerView.isLabelHidden = false
 		timerView.timerFinishingText = "Done. Tap to start work."
+		timerView.labelFont = UIFont.getFont(with: .medium, size: 30)
 		timerView.useMinutesAndSecondsRepresentation = true
 		timerView.delegate = self
 		
@@ -77,6 +79,7 @@ class PomodoroViewController: UIViewController {
 	func configureLabels() {
 		
 		titleLabel.text = "Working on \(task.title)"
+		titleLabel.font = UIFont.getFont(with: .medium, size: 30)
 		
 		let cycles = Int(task.timeToComplete / 1500)
 		if cycles <= 0 {
@@ -86,6 +89,9 @@ class PomodoroViewController: UIViewController {
 		} else {
 			detailLabel.text = "You still have to do about \(cycles) cycles to complete this task"
 		}
+		detailLabel.font = UIFont.getFont(with: .light, size: 16)
+		
+		infoLabel.font = UIFont.getFont(with: .book, size: 13)
 		
 	}
 	

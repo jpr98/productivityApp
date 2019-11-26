@@ -38,10 +38,13 @@ class TimeToCompleteCell: UITableViewCell {
 		timePicker.delegate = self
 		timePicker.dataSource = self
 		
+		timeToCompleteLabel.font = UIFont.getFont(with: .medium, size: 19)
+		
 		if time != 0 {
 			timeToCompleteTextField.text = time.getHoursMinutes()
 		}
 		
+		timeToCompleteTextField.font = UIFont.getFont(with: .light, size: 15)
 		timeToCompleteTextField.placeholder = "0 hr 0 min"
 		timeToCompleteTextField.tintColor = .clear
 		timeToCompleteTextField.inputView = timePicker
@@ -53,7 +56,6 @@ class TimeToCompleteCell: UITableViewCell {
 		
 		toolBar.barStyle = UIBarStyle.default
 		toolBar.isTranslucent = true
-		toolBar.tintColor = .red
 		toolBar.sizeToFit()
 
 		let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(timeToCompleteTextFieldValueChanged))

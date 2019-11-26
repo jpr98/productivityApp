@@ -18,6 +18,8 @@ class TagCollectionViewCell: UICollectionViewCell {
 	}
 	
 	func configure(tag: Tag, tagHasBeenSelected: Bool = false, selected: Bool = false) {
+		
+		nameLabel.font = UIFont.getFont(with: .light, size: 15)
 		nameLabel.text = tag.title
 		if tagHasBeenSelected {
 			tagView.backgroundColor = selected ? UIColor.color(for: .tag) : .gray
@@ -25,5 +27,6 @@ class TagCollectionViewCell: UICollectionViewCell {
 			tagView.backgroundColor = UIColor.color(for: .tag)
 		}
 		tagView.layer.cornerRadius = self.frame.height / 2
+		
 	}
 }

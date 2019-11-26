@@ -47,6 +47,8 @@ class TasksViewController: UIViewController {
 		tasksTableView.dataSource = self
 		tasksTableView.separatorStyle = .none
 		
+		titleLabel.font = UIFont.getFont(with: .bold, size: 20)
+		addButtonText.font = UIFont.getFont(with: .medium, size: 17)
 		tasksTableView.register(Identifiers.taskCell.getNib(), forCellReuseIdentifier: Identifiers.taskCell.rawValue)
 		tasksTableView.register(Identifiers.smartTaskCell.getNib(), forCellReuseIdentifier: Identifiers.smartTaskCell.rawValue)
 		
@@ -196,7 +198,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
 			
 			self.tasks[indexPath.section].remove(at: indexPath.row)
-			RealmHandler.shared.delete(self.tasks[indexPath.section][indexPath.row])
+			//RealmHandler.shared.delete(self.tasks[indexPath.section][indexPath.row])
 			tableView.reload(sections: self.tasks.count)
 			
 		}

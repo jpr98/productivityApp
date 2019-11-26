@@ -35,6 +35,11 @@
 		0B6311FE238C75AD00909797 /* PomodoroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6311FD238C75AD00909797 /* PomodoroViewController.swift */; };
 		0B6811B2238C885E009DD155 /* StartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6811B1238C885E009DD155 /* StartCell.swift */; };
 		0B6811B4238C8884009DD155 /* StartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811B3238C8884009DD155 /* StartCell.xib */; };
+		0B6811C5238CA681009DD155 /* UIFont+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6811C4238CA681009DD155 /* UIFont+utils.swift */; };
+		0B6811C7238CAAE6009DD155 /* GothamRounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811BD238CA672009DD155 /* GothamRounded-Light.otf */; };
+		0B6811C8238CAAE9009DD155 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811BF238CA672009DD155 /* GothamRounded-Medium.otf */; };
+		0B6811C9238CAAEB009DD155 /* GothamRounded-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811C3238CA672009DD155 /* GothamRounded-Book.otf */; };
+		0B6811CA238CAAED009DD155 /* GothamRounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811BC238CA671009DD155 /* GothamRounded-Bold.otf */; };
 		0BBF6E96238A1BAF002AF3FF /* UITextField+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */; };
 		0BBF6E98238A1C2B002AF3FF /* UITextView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */; };
 		0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A85023886550003B2CB0 /* DueDateCell.swift */; };
@@ -84,6 +89,11 @@
 		0B6311FD238C75AD00909797 /* PomodoroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewController.swift; sourceTree = "<group>"; };
 		0B6811B1238C885E009DD155 /* StartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCell.swift; sourceTree = "<group>"; };
 		0B6811B3238C8884009DD155 /* StartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartCell.xib; sourceTree = "<group>"; };
+		0B6811BC238CA671009DD155 /* GothamRounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRounded-Bold.otf"; sourceTree = "<group>"; };
+		0B6811BD238CA672009DD155 /* GothamRounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRounded-Light.otf"; sourceTree = "<group>"; };
+		0B6811BF238CA672009DD155 /* GothamRounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRounded-Medium.otf"; sourceTree = "<group>"; };
+		0B6811C3238CA672009DD155 /* GothamRounded-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRounded-Book.otf"; sourceTree = "<group>"; };
+		0B6811C4238CA681009DD155 /* UIFont+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+utils.swift"; sourceTree = "<group>"; };
 		0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+utils.swift"; sourceTree = "<group>"; };
 		0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+utils.swift"; sourceTree = "<group>"; };
 		0BF5A85023886550003B2CB0 /* DueDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateCell.swift; sourceTree = "<group>"; };
@@ -137,11 +147,12 @@
 		0B1323C82384936100F76E88 /* productivityApp */ = {
 			isa = PBXGroup;
 			children = (
-				0B6311F8238C3E3400909797 /* Helpers */,
 				0B1323DD2384939000F76E88 /* Models */,
 				0B1323DF2384939E00F76E88 /* Views */,
 				0B1323E0238493A400F76E88 /* Controllers */,
 				0B1323EB2384AB5100F76E88 /* Utils */,
+				0B6311F8238C3E3400909797 /* Helpers */,
+				0B6811B5238CA5E7009DD155 /* Fonts */,
 				0B1323C92384936100F76E88 /* AppDelegate.swift */,
 				0B1323CB2384936100F76E88 /* SceneDelegate.swift */,
 				0B1323D22384936500F76E88 /* Assets.xcassets */,
@@ -192,6 +203,7 @@
 				0B51DD752389DC0B00547D60 /* Double+utils.swift */,
 				0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */,
 				0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */,
+				0B6811C4238CA681009DD155 /* UIFont+utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -218,6 +230,17 @@
 				0B6311F9238C3E5200909797 /* RealmHandler.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0B6811B5238CA5E7009DD155 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0B6811BC238CA671009DD155 /* GothamRounded-Bold.otf */,
+				0B6811C3238CA672009DD155 /* GothamRounded-Book.otf */,
+				0B6811BD238CA672009DD155 /* GothamRounded-Light.otf */,
+				0B6811BF238CA672009DD155 /* GothamRounded-Medium.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		0BF5A84F2388653C003B2CB0 /* Static */ = {
@@ -326,9 +349,13 @@
 				0B1323E2238493BF00F76E88 /* Main.storyboard in Resources */,
 				0B1323D62384936500F76E88 /* LaunchScreen.storyboard in Resources */,
 				0BF5A85323886569003B2CB0 /* DueDateCell.xib in Resources */,
+				0B6811CA238CAAED009DD155 /* GothamRounded-Bold.otf in Resources */,
+				0B6811C9238CAAEB009DD155 /* GothamRounded-Book.otf in Resources */,
 				0BF5A8692388822C003B2CB0 /* TimeToCompleteCell.xib in Resources */,
+				0B6811C7238CAAE6009DD155 /* GothamRounded-Light.otf in Resources */,
 				0B15A7F223871D120006B0C9 /* TaskDetail.storyboard in Resources */,
 				0BF5A85B23886719003B2CB0 /* NotesCell.xib in Resources */,
+				0B6811C8238CAAE9009DD155 /* GothamRounded-Medium.otf in Resources */,
 				0B51DD7A2389F3B800547D60 /* AddTagCollectionViewCell.xib in Resources */,
 				0B6811B4238C8884009DD155 /* StartCell.xib in Resources */,
 				0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */,
@@ -396,6 +423,7 @@
 				0B6811B2238C885E009DD155 /* StartCell.swift in Sources */,
 				0BF5A86123886896003B2CB0 /* TaskDetailTableViewController.swift in Sources */,
 				0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */,
+				0B6811C5238CA681009DD155 /* UIFont+utils.swift in Sources */,
 				0BF5A867238881FC003B2CB0 /* TimeToCompleteCell.swift in Sources */,
 				0B1323F12384B22200F76E88 /* SmartTaskTableViewCell.swift in Sources */,
 				0B6311FA238C3E5200909797 /* RealmHandler.swift in Sources */,
