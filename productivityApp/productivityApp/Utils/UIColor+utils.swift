@@ -31,11 +31,17 @@ extension UIColor {
 		case .cell:
 			return UIColor(rgb: 0xF9F9F9)
 		case .priority(.low):
-			return UIColor(rgb: 0x6BB218)
+			return UIColor(rgb: 0xFCBF49)
 		case .priority(.medium):
-			return UIColor(rgb: 0xE8D811)
+			return UIColor(rgb: 0xF77F00)
 		case .priority(.high):
-			return UIColor(rgb: 0xB1061B)
+			return UIColor(rgb: 0xD62828)
+		case .complete:
+			return UIColor(rgb: 0x5E8732)
+		case .save:
+			return UIColor(rgb: 0x7E92B5)
+		case .tag:
+			return UIColor(rgb: 0x99B2DD)
 		}
 		
 	}

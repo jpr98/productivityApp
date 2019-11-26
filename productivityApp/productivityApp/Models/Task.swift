@@ -88,7 +88,7 @@ class Task: Object {
 
 // MARK: - Ordering methods (Static)
 extension Task {
-	static func order(array: [Task]? = nil, matrix: [[Task]]? = nil, by order: Order, completion: ([[Task]]) -> Void) {
+	static func order(array: [Task]? = nil, matrix: [[Task]]? = nil, by order: Order, showCompleted: Bool, completion: ([[Task]]) -> Void) {
 		
 		var taskArray = [Task]()
 		
@@ -109,9 +109,10 @@ extension Task {
 			taskArray = orderBySmart(taskArray)
 		}
 		
-		// Maybe I can change this...
-		taskArray = taskArray.filter { (task) -> Bool in
-			return !task.completed
+		if !showCompleted {
+			taskArray = taskArray.filter { (task) -> Bool in
+				return !task.completed
+			}
 		}
 		
 		if order == .time {

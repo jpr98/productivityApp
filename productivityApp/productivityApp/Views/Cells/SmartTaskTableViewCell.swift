@@ -14,6 +14,9 @@ class SmartTaskTableViewCell: UITableViewCell {
 	@IBOutlet weak var progressView: UIView!
 	@IBOutlet weak var priorityColorView: UIView!
 	@IBOutlet weak var taskView: UIView!
+	@IBOutlet weak var timeLeftLabel: UILabel!
+	@IBOutlet weak var completedLineView: UIView!
+	
 	
 	var task: Task!
 	
@@ -31,11 +34,15 @@ class SmartTaskTableViewCell: UITableViewCell {
 		
 		setProgressView()
 		self.progressView.setNeedsDisplay()
+		
 	}
 	
 	func setup() {
+		
 		titleLabel.text = task.title
 		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
+		timeLeftLabel.text = task.timeToComplete.getHoursMinutes()
+		completedLineView.isHidden = !task.completed
 		
 	}
 	

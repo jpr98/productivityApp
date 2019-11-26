@@ -40,17 +40,29 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIP-lT-G2m">
+                                <rect key="frame" x="12" y="36" width="440" height="2"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="6v8-xm-DSm" userLabel="4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="KBV-kE-2cO" firstAttribute="leading" secondItem="Efy-pV-0iY" secondAttribute="trailing" constant="18" id="7vf-s1-GbU"/>
                             <constraint firstAttribute="bottom" secondItem="Efy-pV-0iY" secondAttribute="bottom" id="9L3-DG-qk0"/>
                             <constraint firstItem="KBV-kE-2cO" firstAttribute="leading" secondItem="Efy-pV-0iY" secondAttribute="trailing" constant="18" id="Ar4-dU-BHs"/>
                             <constraint firstAttribute="trailing" secondItem="XQw-GY-WCp" secondAttribute="trailing" constant="20" id="B1e-lg-SbY"/>
                             <constraint firstItem="KBV-kE-2cO" firstAttribute="centerY" secondItem="VGW-fx-7KV" secondAttribute="centerY" id="Cip-Gu-vc0"/>
+                            <constraint firstAttribute="trailing" secondItem="mIP-lT-G2m" secondAttribute="trailing" id="VXA-BZ-qab"/>
+                            <constraint firstItem="mIP-lT-G2m" firstAttribute="centerY" secondItem="VGW-fx-7KV" secondAttribute="centerY" id="Vf1-SX-RDb"/>
                             <constraint firstItem="XQw-GY-WCp" firstAttribute="centerY" secondItem="KBV-kE-2cO" secondAttribute="centerY" id="bDh-ct-1tu"/>
+                            <constraint firstItem="mIP-lT-G2m" firstAttribute="leading" secondItem="Efy-pV-0iY" secondAttribute="trailing" id="dL9-hO-hut"/>
                             <constraint firstItem="Efy-pV-0iY" firstAttribute="leading" secondItem="VGW-fx-7KV" secondAttribute="leading" id="iBt-hf-1GA"/>
                             <constraint firstItem="XQw-GY-WCp" firstAttribute="leading" secondItem="KBV-kE-2cO" secondAttribute="trailing" id="okD-TD-LP7"/>
                             <constraint firstItem="Efy-pV-0iY" firstAttribute="top" secondItem="VGW-fx-7KV" secondAttribute="top" id="uPV-J9-dC6"/>
+                            <constraint firstItem="XQw-GY-WCp" firstAttribute="leading" secondItem="KBV-kE-2cO" secondAttribute="trailing" id="zgN-fj-OV0"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -63,6 +75,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="completedLineView" destination="mIP-lT-G2m" id="Tln-Nn-Szn"/>
                 <outlet property="dueTimeLabel" destination="XQw-GY-WCp" id="quS-bT-OqW"/>
                 <outlet property="priorityColorView" destination="Efy-pV-0iY" id="RdX-vy-CQI"/>
                 <outlet property="taskView" destination="VGW-fx-7KV" id="Wku-JZ-r4J"/>

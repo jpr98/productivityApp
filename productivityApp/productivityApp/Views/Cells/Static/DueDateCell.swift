@@ -60,7 +60,6 @@ class DueDateCell: UITableViewCell {
 		
 		toolBar.barStyle = UIBarStyle.default
 		toolBar.isTranslucent = true
-		toolBar.tintColor = .red
 		toolBar.sizeToFit()
 
 		let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dateTextFieldValueChanged))

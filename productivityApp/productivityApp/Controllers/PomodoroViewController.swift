@@ -92,11 +92,11 @@ class PomodoroViewController: UIViewController {
 	func configureButtons() {
 		
 		saveButton.layer.cornerRadius = 10
-		saveButton.layer.backgroundColor = UIColor.red.cgColor
+		saveButton.layer.backgroundColor = UIColor.color(for: .save)?.cgColor
 		saveButton.setTitleColor(.white, for: .normal)
 		
 		doneButton.layer.cornerRadius = 10
-		doneButton.layer.backgroundColor = UIColor.blue.cgColor
+		doneButton.layer.backgroundColor = UIColor.color(for: .complete)?.cgColor
 		doneButton.setTitleColor(.white, for: .normal)
 		
 	}

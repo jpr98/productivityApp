@@ -93,6 +93,9 @@ enum ViewType {
 	case background
 	case cell
 	case priority(Priority)
+	case complete
+	case save
+	case tag
 }
 
 enum Direction {

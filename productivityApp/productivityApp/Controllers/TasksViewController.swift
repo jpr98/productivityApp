@@ -55,7 +55,7 @@ class TasksViewController: UIViewController {
 	func updateData() {
 		
 		unreadyTasks = RealmHandler.shared.getTasks()
-		Task.order(array: unreadyTasks, by: order) { orderedTasks in
+		Task.order(array: unreadyTasks, by: order, showCompleted: showCompleted) { orderedTasks in
 			self.tasks = orderedTasks
 			self.tasksTableView.reloadData()
 		}
@@ -69,26 +69,16 @@ class TasksViewController: UIViewController {
 		
 		if showCompleted {
 			let showCompletedAction = UIAlertAction(title: "Hide completed", style: .default) { _ in
-				self.showCompleted = false // Maybe change to fetch only non-completed
+				self.showCompleted = false
+				self.updateData()
 			}
 			optionsVC.addAction(showCompletedAction)
 		} else {
 			let showCompletedAction = UIAlertAction(title: "Show completed", style: .default) { _ in
-				self.showCompleted = true // Maybe change to fetch all
+				self.showCompleted = true
+				self.updateData()
 			}
 			optionsVC.addAction(showCompletedAction)
-		}
-		
-		if editMode {
-			let editModeAction = UIAlertAction(title: "Exit edit mode", style: .default) { _ in
-				self.editMode = false
-			}
-			optionsVC.addAction(editModeAction)
-		} else {
-			let editModeAction = UIAlertAction(title: "Enter edit mode", style: .default) { _ in
-				self.editMode = true
-			}
-			optionsVC.addAction(editModeAction)
 		}
 		
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
@@ -105,7 +95,7 @@ class TasksViewController: UIViewController {
 		order = Order.get(from: orderSegmentedControl.selectedSegmentIndex)
 		
 		DispatchQueue.global(qos: .userInitiated).async {
-			Task.order(matrix: self.tasks, by: self.order) { orderedTasks in
+			Task.order(matrix: self.tasks, by: self.order, showCompleted: self.showCompleted) { orderedTasks in
 				self.tasks = orderedTasks
 				
 				DispatchQueue.main.async {
@@ -194,7 +184,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
 			
 		}
 		
-		action.backgroundColor = .green // TODO: Change color and maybe add icon
+		action.backgroundColor = UIColor.color(for: .complete)
 		
 		let configuration = UISwipeActionsConfiguration(actions: [action])
 		return configuration

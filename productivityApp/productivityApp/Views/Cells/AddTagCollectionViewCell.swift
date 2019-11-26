@@ -29,7 +29,7 @@ class AddTagCollectionViewCell: UICollectionViewCell {
 		self.delegate = delegate
 		
 		addTagImageView.tintColor = .black
-		addTagView.backgroundColor = tagHasBeenSelected ? .gray : .red
+		addTagView.backgroundColor = tagHasBeenSelected ? .gray : UIColor.color(for: .tag)
 		addTagImageView.contentMode = .scaleAspectFill
 		
 		addTagView.clipsToBounds = true

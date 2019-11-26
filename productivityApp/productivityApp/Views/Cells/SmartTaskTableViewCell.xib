@@ -33,20 +33,42 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-QC-3B4">
                                 <rect key="frame" x="335" y="4" width="79" height="79"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eKc-QC-3B4" secondAttribute="height" multiplier="1:1" id="z4K-xQ-uBL"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lS-0y-4qg">
+                                <rect key="frame" x="292" y="28.5" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KZo-z6-XOv"/>
+                                    <constraint firstAttribute="width" constant="120" id="ixq-Mb-0cp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLq-iC-VpF">
+                                <rect key="frame" x="12" y="42.5" width="418" height="2"/>
+                                <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="eq4-YU-ZBn" userLabel="4"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="eKc-QC-3B4" firstAttribute="centerY" secondItem="sxl-pq-cQC" secondAttribute="centerY" id="1z9-m0-O6A"/>
+                            <constraint firstAttribute="trailing" secondItem="3lS-0y-4qg" secondAttribute="trailing" constant="18" id="4pf-zo-GFS"/>
+                            <constraint firstItem="sxl-pq-cQC" firstAttribute="centerY" secondItem="3lS-0y-4qg" secondAttribute="centerY" id="94f-B1-GaB"/>
                             <constraint firstItem="0Bg-w1-y5l" firstAttribute="leading" secondItem="utl-nP-JTn" secondAttribute="leading" id="Cnq-Gc-fdM"/>
                             <constraint firstAttribute="bottom" secondItem="0Bg-w1-y5l" secondAttribute="bottom" id="Fvs-kK-2eO"/>
                             <constraint firstItem="sxl-pq-cQC" firstAttribute="leading" secondItem="0Bg-w1-y5l" secondAttribute="trailing" constant="18" id="a3T-XV-E97"/>
                             <constraint firstItem="sxl-pq-cQC" firstAttribute="centerY" secondItem="utl-nP-JTn" secondAttribute="centerY" id="bxZ-MU-3hO"/>
+                            <constraint firstAttribute="trailing" secondItem="xLq-iC-VpF" secondAttribute="trailing" id="d45-00-575"/>
                             <constraint firstAttribute="trailing" secondItem="eKc-QC-3B4" secondAttribute="trailing" constant="16" id="gBi-LH-zNG"/>
+                            <constraint firstItem="xLq-iC-VpF" firstAttribute="centerY" secondItem="utl-nP-JTn" secondAttribute="centerY" id="iEb-12-DwE"/>
+                            <constraint firstItem="xLq-iC-VpF" firstAttribute="leading" secondItem="0Bg-w1-y5l" secondAttribute="trailing" id="igq-3D-9Eb"/>
                             <constraint firstItem="0Bg-w1-y5l" firstAttribute="top" secondItem="utl-nP-JTn" secondAttribute="top" id="o3q-z0-JDC"/>
                             <constraint firstItem="eKc-QC-3B4" firstAttribute="height" secondItem="utl-nP-JTn" secondAttribute="height" multiplier="1:1.1" id="r1v-7h-Cyd"/>
                         </constraints>
@@ -61,9 +83,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="completedLineView" destination="xLq-iC-VpF" id="vwa-u9-F1L"/>
                 <outlet property="priorityColorView" destination="0Bg-w1-y5l" id="XlZ-PN-jZY"/>
                 <outlet property="progressView" destination="eKc-QC-3B4" id="bDW-aT-TEb"/>
                 <outlet property="taskView" destination="utl-nP-JTn" id="N7g-mt-v0x"/>
+                <outlet property="timeLeftLabel" destination="3lS-0y-4qg" id="jBE-eK-bZl"/>
                 <outlet property="titleLabel" destination="sxl-pq-cQC" id="Toj-Nx-UP8"/>
             </connections>
             <point key="canvasLocation" x="-27.536231884057973" y="90.066964285714278"/>

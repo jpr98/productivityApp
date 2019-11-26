@@ -28,7 +28,9 @@ class StartCell: UITableViewCell {
 		
 		startButton.isHidden = shouldHide
 		startButton.layer.cornerRadius = 8
-		startButton.layer.backgroundColor = UIColor.green.cgColor
+		startButton.setTitle("Start", for: .normal)
+		startButton.layer.backgroundColor = UIColor.color(for: .complete)?.cgColor
+		startButton.setTitleColor(.white, for: .normal)
 		
 	}
 	

@@ -14,6 +14,8 @@ class TaskTableViewCell: UITableViewCell {
 	@IBOutlet weak var dueTimeLabel: UILabel!
 	@IBOutlet weak var priorityColorView: UIView!
 	@IBOutlet weak var taskView: UIView!
+	@IBOutlet weak var completedLineView: UIView!
+	
 	
 	var task: Task!
 	
@@ -32,9 +34,12 @@ class TaskTableViewCell: UITableViewCell {
 	}
 	
 	func setup() {
+		
 		titleLabel.text = task.title
 		dueTimeLabel.text = task.dueDate.getTime()
 		priorityColorView.backgroundColor = UIColor.color(for: .priority(task.priority))
+		completedLineView.isHidden = !task.completed
+		
 	}
 	
 }

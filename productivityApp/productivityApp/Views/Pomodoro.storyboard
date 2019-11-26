@@ -30,28 +30,28 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are working on task name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gy-gg-jca">
-                                <rect key="frame" x="20" y="74" width="374" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <rect key="frame" x="20" y="74" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This task has 2 hrs 10 min left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqG-6t-APL">
-                                <rect key="frame" x="20" y="105" width="374" height="19.5"/>
+                                <rect key="frame" x="20" y="106" width="374" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzu-4W-7b8">
-                                <rect key="frame" x="20" y="148.5" width="374" height="47"/>
+                                <rect key="frame" x="20" y="149.5" width="374" height="47"/>
                                 <string key="text">The Pomodoro Technique is a time management method that uses a timer to break down work into intervals, 25 minutes in length, separated 5 minute breaks.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7T-0m-lqq">
-                                <rect key="frame" x="47" y="792" width="120" height="35"/>
+                                <rect key="frame" x="37" y="792" width="140" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="6uh-rQ-v4T"/>
+                                    <constraint firstAttribute="width" constant="140" id="6uh-rQ-v4T"/>
                                     <constraint firstAttribute="height" constant="35" id="RaS-wc-Gtv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -61,9 +61,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msg-RI-mzK">
-                                <rect key="frame" x="247" y="792" width="120" height="35"/>
+                                <rect key="frame" x="237" y="792" width="140" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="CFj-ZG-aBn"/>
+                                    <constraint firstAttribute="width" constant="140" id="CFj-ZG-aBn"/>
                                     <constraint firstAttribute="height" constant="35" id="PNs-PN-y99"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
