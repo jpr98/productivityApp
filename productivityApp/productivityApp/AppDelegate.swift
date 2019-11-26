@@ -7,17 +7,50 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+	let notificationCenter = UNUserNotificationCenter.current()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+		
+		notificationCenter.requestAuthorization(options: options) {
+			(didAllow, error) in
+			if !didAllow {
+				print("User has declined notifications")
+			}
+		}
+		
 		return true
 	}
+	
+	func scheduleNotification(for task: Task) {
+		
+		let content = UNMutableNotificationContent()
+		
+		content.title = task.title
+		content.body = "Hey! Don't forget your to-do: \(task.title)"
+		content.sound = UNNotificationSound.default
+		content.badge = 1
+		
+		let date = task.dueDate
+		let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+		let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+		
+		let identifier = "Local Notification"
+		let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
 
+		notificationCenter.add(request) { (error) in
+			if let error = error {
+				print("Error \(error.localizedDescription)")
+			}
+		}
+	}
+	
 	// MARK: UISceneSession Lifecycle
 
 	func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

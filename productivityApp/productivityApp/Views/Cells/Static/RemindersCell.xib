@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RemindersCell" rowHeight="73" id="LJg-CI-hQ3" customClass="RemindersCell" customModule="Mindex" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="548" height="73"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LJg-CI-hQ3" id="QyL-Ko-ubV">
+                <rect key="frame" x="0.0" y="0.0" width="548" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAi-iE-9ZX">
+                        <rect key="frame" x="20" y="26" width="419" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STI-VW-ExT">
+                        <rect key="frame" x="479" y="21" width="51" height="31"/>
+                        <connections>
+                            <action selector="reminderSwitchToggled:" destination="LJg-CI-hQ3" eventType="valueChanged" id="UZ8-xG-64U"/>
+                        </connections>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="STI-VW-ExT" secondAttribute="trailing" constant="20" id="2g7-11-SLs"/>
+                    <constraint firstItem="ZAi-iE-9ZX" firstAttribute="leading" secondItem="QyL-Ko-ubV" secondAttribute="leading" constant="20" id="FfU-Xe-uDL"/>
+                    <constraint firstItem="STI-VW-ExT" firstAttribute="leading" secondItem="ZAi-iE-9ZX" secondAttribute="trailing" constant="40" id="Tkd-7B-pFQ"/>
+                    <constraint firstItem="ZAi-iE-9ZX" firstAttribute="centerY" secondItem="QyL-Ko-ubV" secondAttribute="centerY" id="sRK-2P-Sml"/>
+                    <constraint firstItem="STI-VW-ExT" firstAttribute="centerY" secondItem="ZAi-iE-9ZX" secondAttribute="centerY" id="tl0-eW-Cxu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="reminderLabel" destination="ZAi-iE-9ZX" id="dEn-if-qty"/>
+                <outlet property="reminderSwitch" destination="STI-VW-ExT" id="w7y-gN-TQu"/>
+            </connections>
+            <point key="canvasLocation" x="42.028985507246382" y="71.316964285714278"/>
+        </tableViewCell>
+    </objects>
+</document>

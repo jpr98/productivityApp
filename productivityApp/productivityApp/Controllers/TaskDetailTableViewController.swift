@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol TaskDetailTableViewControllerDelegate: class {
 	func willDissapear()
@@ -19,9 +20,11 @@ class TaskDetailTableViewController: UITableViewController {
 	}
 	
 	weak var delegate: TaskDetailTableViewControllerDelegate?
+	let appDelegate = UIApplication.shared.delegate as? AppDelegate
 	
 	var task = Task()
 	var newTask = true
+	var notificationsOn = false
 	
 	override func viewDidLoad() {
 		
@@ -44,6 +47,9 @@ class TaskDetailTableViewController: UITableViewController {
 		
 		if task.title != "" {
 			RealmHandler.shared.save(task)
+			if notificationsOn {
+				appDelegate?.scheduleNotification(for: task)
+			}
 			delegate?.willDissapear()
 		}
 		
@@ -57,6 +63,7 @@ class TaskDetailTableViewController: UITableViewController {
 		self.tableView.register(Identifiers.tagPickerCell.getNib(), forCellReuseIdentifier: Identifiers.tagPickerCell.rawValue)
 		self.tableView.register(Identifiers.priorityCell.getNib(), forCellReuseIdentifier: Identifiers.priorityCell.rawValue)
 		self.tableView.register(Identifiers.timeToCompleteCell.getNib(), forCellReuseIdentifier: Identifiers.timeToCompleteCell.rawValue)
+		self.tableView.register(Identifiers.remindersCell.getNib(), forCellReuseIdentifier: Identifiers.remindersCell.rawValue)
 		self.tableView.register(Identifiers.startCell.getNib(), forCellReuseIdentifier: Identifiers.startCell.rawValue)
 		
 	}
@@ -159,7 +166,18 @@ extension TaskDetailTableViewController {
 				
 				return cell
 				
+			} else if indexPath.row == 2 {
+				
+				guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.remindersCell.rawValue) as? RemindersCell else {
+					return UITableViewCell()
+				}
+				
+				cell.configure(delegate: self)
+				
+				return cell
+				
 			}
+			
 		} else if indexPath.section == 4 {
 			
 			guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.startCell.rawValue, for: indexPath) as? StartCell else {
@@ -236,6 +254,15 @@ extension TaskDetailTableViewController: TimeToCompleteCellDelegate {
 	
 	func timeToCompleteSelected(_ time: TimeInterval) {
 		task.timeToComplete = time
+	}
+	
+}
+
+// MARK: - RemindersCell
+extension TaskDetailTableViewController: RemindersCellDelegate {
+	
+	func setNotifications(on: Bool) {
+		notificationsOn = on
 	}
 	
 }

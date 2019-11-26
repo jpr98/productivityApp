@@ -40,6 +40,8 @@
 		0B6811C8238CAAE9009DD155 /* GothamRounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811BF238CA672009DD155 /* GothamRounded-Medium.otf */; };
 		0B6811C9238CAAEB009DD155 /* GothamRounded-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811C3238CA672009DD155 /* GothamRounded-Book.otf */; };
 		0B6811CA238CAAED009DD155 /* GothamRounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811BC238CA671009DD155 /* GothamRounded-Bold.otf */; };
+		0B6811CC238CB36D009DD155 /* RemindersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6811CB238CB36C009DD155 /* RemindersCell.swift */; };
+		0B6811CE238CB3C3009DD155 /* RemindersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B6811CD238CB3C3009DD155 /* RemindersCell.xib */; };
 		0BBF6E96238A1BAF002AF3FF /* UITextField+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */; };
 		0BBF6E98238A1C2B002AF3FF /* UITextView+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */; };
 		0BF5A85123886550003B2CB0 /* DueDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF5A85023886550003B2CB0 /* DueDateCell.swift */; };
@@ -94,6 +96,8 @@
 		0B6811BF238CA672009DD155 /* GothamRounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRounded-Medium.otf"; sourceTree = "<group>"; };
 		0B6811C3238CA672009DD155 /* GothamRounded-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRounded-Book.otf"; sourceTree = "<group>"; };
 		0B6811C4238CA681009DD155 /* UIFont+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+utils.swift"; sourceTree = "<group>"; };
+		0B6811CB238CB36C009DD155 /* RemindersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersCell.swift; sourceTree = "<group>"; };
+		0B6811CD238CB3C3009DD155 /* RemindersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindersCell.xib; sourceTree = "<group>"; };
 		0BBF6E95238A1BAF002AF3FF /* UITextField+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+utils.swift"; sourceTree = "<group>"; };
 		0BBF6E97238A1C2B002AF3FF /* UITextView+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+utils.swift"; sourceTree = "<group>"; };
 		0BF5A85023886550003B2CB0 /* DueDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateCell.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				0BF5A8682388822C003B2CB0 /* TimeToCompleteCell.xib */,
 				0B6811B1238C885E009DD155 /* StartCell.swift */,
 				0B6811B3238C8884009DD155 /* StartCell.xib */,
+				0B6811CB238CB36C009DD155 /* RemindersCell.swift */,
+				0B6811CD238CB3C3009DD155 /* RemindersCell.xib */,
 			);
 			path = Static;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				0B6811B4238C8884009DD155 /* StartCell.xib in Resources */,
 				0B1323EF2384B08600F76E88 /* SmartTaskTableViewCell.xib in Resources */,
 				0B1323D32384936500F76E88 /* Assets.xcassets in Resources */,
+				0B6811CE238CB3C3009DD155 /* RemindersCell.xib in Resources */,
 				0B6311FC238C754900909797 /* Pomodoro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +447,7 @@
 				0B1323CC2384936100F76E88 /* SceneDelegate.swift in Sources */,
 				0B60E3332387B19100099F89 /* Tag.swift in Sources */,
 				0B51DD782389F3A800547D60 /* AddTagCollectionViewCell.swift in Sources */,
+				0B6811CC238CB36D009DD155 /* RemindersCell.swift in Sources */,
 				0B6311FE238C75AD00909797 /* PomodoroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
